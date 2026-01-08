@@ -1,0 +1,17 @@
+{
+  "name": "claude-best-practices",
+  "version": "1.0.0",
+  "description": "A reveal.js presentation about Claude best practices",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "reveal.js": "^5.2.1"
+  }
+}
