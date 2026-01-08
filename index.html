@@ -3252,7 +3252,138 @@ Summarize findings by severity (CRITICAL/HIGH/MEDIUM/LOW).</code></pre>
         </section>
 
         <!-- ============================================ -->
-        <!-- SECTION 13.5: MEMORY & AUTO-COMPACT -->
+        <!-- SECTION 13.5: MAGIC KEYWORDS -->
+        <!-- ============================================ -->
+        <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Type a word.<br/>Change how Claude thinks.</p>
+          </section>
+
+          <section>
+            <h2>Magic Keywords</h2>
+            <p>Prompt modifiers that unlock special modes</p>
+          </section>
+
+          <section>
+            <h3>Thinking Mode Keywords</h3>
+            <table style="font-size: 0.7em;">
+              <tr>
+                <th>Keyword</th>
+                <th>Effect</th>
+                <th>Best For</th>
+              </tr>
+              <tr>
+                <td><code>think</code></td>
+                <td>Enables extended thinking</td>
+                <td>Complex problems</td>
+              </tr>
+              <tr>
+                <td><code>think hard</code></td>
+                <td>More thinking budget</td>
+                <td>Difficult bugs</td>
+              </tr>
+              <tr>
+                <td><code>think harder</code></td>
+                <td>Even more budget</td>
+                <td>Architecture decisions</td>
+              </tr>
+              <tr>
+                <td><code>ultrathink</code></td>
+                <td>Maximum thinking budget</td>
+                <td>Critical, complex tasks</td>
+              </tr>
+            </table>
+            <p class="tip">Just include the keyword anywhere in your prompt</p>
+          </section>
+
+          <section>
+            <h3>Using Think Keywords</h3>
+            <pre><code class="language-bash"># Basic extended thinking
+"think about how to refactor this authentication system"
+
+# More intensive reasoning
+"think hard about the edge cases in this payment flow"
+
+# Maximum reasoning power
+"ultrathink: Design a distributed caching layer that handles
+failover, consistency, and partition tolerance"
+
+# Can appear anywhere in prompt
+"I need to fix this race condition, ultrathink"</code></pre>
+          </section>
+
+          <section>
+            <h3>When to Use Each Level</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.75em; text-align: left;">
+              <div style="background: rgba(102,126,234,0.1); padding: 15px; border-radius: 8px;">
+                <p style="color: #667eea; margin: 0;"><strong>think</strong></p>
+                <ul style="font-size: 0.9em; margin: 10px 0;">
+                  <li>Multi-step refactoring</li>
+                  <li>Debugging tricky issues</li>
+                  <li>Design pattern decisions</li>
+                </ul>
+              </div>
+              <div style="background: rgba(118,75,162,0.1); padding: 15px; border-radius: 8px;">
+                <p style="color: #764ba2; margin: 0;"><strong>think hard</strong></p>
+                <ul style="font-size: 0.9em; margin: 10px 0;">
+                  <li>Complex algorithm design</li>
+                  <li>Security vulnerability analysis</li>
+                  <li>Performance optimization</li>
+                </ul>
+              </div>
+              <div style="background: rgba(255,212,59,0.1); padding: 15px; border-radius: 8px;">
+                <p style="color: #ffd43b; margin: 0;"><strong>think harder</strong></p>
+                <ul style="font-size: 0.9em; margin: 10px 0;">
+                  <li>System architecture</li>
+                  <li>Cross-cutting concerns</li>
+                  <li>Migration strategies</li>
+                </ul>
+              </div>
+              <div style="background: rgba(255,107,107,0.1); padding: 15px; border-radius: 8px;">
+                <p style="color: #ff6b6b; margin: 0;"><strong>ultrathink</strong></p>
+                <ul style="font-size: 0.9em; margin: 10px 0;">
+                  <li>Critical production changes</li>
+                  <li>Full system redesigns</li>
+                  <li>Complex debugging sessions</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Other Useful Keywords</h3>
+            <table style="font-size: 0.7em;">
+              <tr>
+                <th>Keyword</th>
+                <th>Effect</th>
+              </tr>
+              <tr>
+                <td><code>be concise</code></td>
+                <td>Shorter responses, less explanation</td>
+              </tr>
+              <tr>
+                <td><code>step by step</code></td>
+                <td>Break down into explicit steps</td>
+              </tr>
+              <tr>
+                <td><code>explain your reasoning</code></td>
+                <td>Show thought process</td>
+              </tr>
+              <tr>
+                <td><code>check your work</code></td>
+                <td>Verify before responding</td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <p class="big-idea">Hard problem?<br/><code style="color: #ffd43b;">ultrathink</code></p>
+          </section>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 13.6: MEMORY & AUTO-COMPACT -->
         <!-- ============================================ -->
         <section>
           <!-- WHY opener (Sinek) -->
@@ -4414,7 +4545,7 @@ Update Jira with:
 
           <section>
             <h3>Complete Integration Diagram</h3>
-            <pre><code class="language-mermaid">flowchart TB
+            <pre class="mermaid">flowchart TB
     subgraph Human["Developer"]
         Dev[Developer]
     end
@@ -4446,7 +4577,7 @@ Update Jira with:
     Generation --> Git -->|Commit| Repo
     Git --> GitHub -->|Create PR| GitHubCloud
     GitHub --> Jira -->|Link & update| JiraCloud
-    Orchestrator -->|"Done!"| Dev</code></pre>
+    Orchestrator -->|"Done!"| Dev</pre>
           </section>
         </section>
 
@@ -7020,7 +7151,7 @@ Output each as a separate code block."</code></pre>
 
           <section>
             <h3>Generated: System Architecture</h3>
-            <pre><code class="language-mermaid">flowchart TB
+            <pre class="mermaid">flowchart TB
     subgraph Client["Client Layer"]
         Browser[Browser]
         Mobile[Mobile App]
@@ -7071,66 +7202,66 @@ Output each as a separate code block."</code></pre>
     OrderSvc --> S3
     UserSvc & OrderSvc & PaymentSvc --> Prisma
     Prisma --> DB
-    tRPC --> Redis</code></pre>
+    tRPC --> Redis</pre>
           </section>
 
           <section>
             <h3>Generated: Database Schema</h3>
-            <pre><code class="language-mermaid">erDiagram
+            <pre class="mermaid">erDiagram
     User ||--o{ Order : places
     User ||--o{ Address : has
     User ||--o{ Review : writes
     User {
-        uuid id PK
-        string email UK
+        string id PK
+        string email
         string name
         string passwordHash
-        enum role
-        timestamp createdAt
+        string role
+        datetime createdAt
     }
 
     Order ||--|{ OrderItem : contains
     Order {
-        uuid id PK
-        uuid userId FK
-        uuid addressId FK
-        enum status
+        string id PK
+        string userId FK
+        string addressId FK
+        string status
         int totalCents
-        timestamp createdAt
+        datetime createdAt
     }
 
-    Product ||--o{ OrderItem : "ordered in"
+    Product ||--o{ OrderItem : ordered_in
     Product ||--o{ Review : receives
     Product {
-        uuid id PK
-        string slug UK
+        string id PK
+        string slug
         string name
-        text description
+        string description
         int priceCents
         int stock
-        uuid categoryId FK
+        string categoryId FK
     }
 
     OrderItem {
-        uuid id PK
-        uuid orderId FK
-        uuid productId FK
+        string id PK
+        string orderId FK
+        string productId FK
         int quantity
         int priceCents
     }
 
     Category ||--o{ Product : contains
     Category {
-        uuid id PK
-        string slug UK
+        string id PK
+        string slug
         string name
-        uuid parentId FK
-    }</code></pre>
+        string parentId FK
+    }</pre>
           </section>
 
           <section>
             <h3>Generated: Auth Flow</h3>
-            <pre><code class="language-mermaid">sequenceDiagram
+            <pre class="mermaid">sequenceDiagram
     autonumber
     actor User
     participant Browser
@@ -7156,12 +7287,12 @@ Output each as a separate code block."</code></pre>
     DB->>NextAuth: User record
     NextAuth->>NextAuth: Create session JWT
     NextAuth->>Browser: Set session cookie
-    Browser->>User: Logged in!</code></pre>
+    Browser->>User: Logged in!</pre>
           </section>
 
           <section>
             <h3>Generated: Order State Machine</h3>
-            <pre><code class="language-mermaid">stateDiagram-v2
+            <pre class="mermaid">stateDiagram-v2
     [*] --> Pending: Order created
 
     Pending --> Confirmed: Payment success
@@ -7187,12 +7318,12 @@ Output each as a separate code block."</code></pre>
 
     note right of Processing: Inventory reserved
     note right of Shipped: Tracking email sent
-    note right of Refunded: 5-7 business days</code></pre>
+    note right of Refunded: 5-7 business days</pre>
           </section>
 
           <section>
             <h3>CI/CD Pipeline Diagram</h3>
-            <pre><code class="language-mermaid">flowchart LR
+            <pre class="mermaid">flowchart LR
     subgraph Trigger["Trigger"]
         Push[Push to main]
         PR[Pull Request]
@@ -7226,7 +7357,109 @@ Output each as a separate code block."</code></pre>
     Preview -->|main only| Prod
 
     style Prod fill:#22c55e
-    style Preview fill:#3b82f6</code></pre>
+    style Preview fill:#3b82f6</pre>
+          </section>
+
+          <section>
+            <h3>Timeline / Roadmap</h3>
+            <pre class="mermaid">timeline
+    title Product Roadmap 2025
+    section Q1
+        Auth System : JWT implementation
+                    : OAuth providers
+                    : 2FA support
+    section Q2
+        API v2 : GraphQL migration
+               : Rate limiting
+               : Webhooks
+    section Q3
+        Mobile App : iOS release
+                   : Android release
+                   : Push notifications
+    section Q4
+        AI Features : Claude integration
+                    : Smart search
+                    : Auto-categorization</pre>
+          </section>
+
+          <section>
+            <h3>Gantt Chart</h3>
+            <pre class="mermaid">gantt
+    title Sprint Planning
+    dateFormat YYYY-MM-DD
+    section Backend
+        API endpoints     :a1, 2025-01-06, 5d
+        Database schema   :a2, after a1, 3d
+        Unit tests        :a3, after a2, 2d
+    section Frontend
+        UI components     :b1, 2025-01-06, 4d
+        Integration       :b2, after a1, 3d
+        E2E tests         :b3, after b2, 2d
+    section DevOps
+        CI/CD setup       :c1, 2025-01-08, 2d
+        Deployment        :milestone, after a3 b3, 0d</pre>
+          </section>
+
+          <section>
+            <h3>Mindmap</h3>
+            <pre class="mermaid">mindmap
+  root((Claude Code))
+    API
+      Messages
+      Tools
+      Streaming
+      Batches
+    CLI
+      Commands
+      Plugins
+      MCP
+    Best Practices
+      CLAUDE.md
+      Prompting
+      Testing
+      Security</pre>
+          </section>
+
+          <section>
+            <h3>Git Graph</h3>
+            <pre class="mermaid">gitGraph
+    commit id: "init"
+    commit id: "feat: auth"
+    branch feature/payments
+    commit id: "wip: stripe"
+    commit id: "feat: checkout"
+    checkout main
+    commit id: "fix: login bug"
+    merge feature/payments id: "merge: payments"
+    commit id: "chore: release v1.0"</pre>
+          </section>
+
+          <section>
+            <h3>Quadrant Chart</h3>
+            <pre class="mermaid">quadrantChart
+    title Task Prioritization
+    x-axis Low Effort --> High Effort
+    y-axis Low Impact --> High Impact
+    quadrant-1 Do First
+    quadrant-2 Schedule
+    quadrant-3 Delegate
+    quadrant-4 Eliminate
+    Auth refactor: [0.8, 0.9]
+    Dark mode: [0.2, 0.3]
+    API docs: [0.3, 0.7]
+    Button color: [0.1, 0.1]
+    Caching: [0.7, 0.8]
+    Analytics: [0.5, 0.6]</pre>
+          </section>
+
+          <section>
+            <h3>Pie Chart</h3>
+            <pre class="mermaid">pie showData
+    title Token Usage by Feature
+    "Prompt" : 15
+    "Context" : 45
+    "Response" : 30
+    "System" : 10</pre>
           </section>
 
           <section>
@@ -7316,12 +7549,49 @@ Keep existing style and formatting consistent."</code></pre>
     <script src="node_modules/reveal.js/dist/reveal.js"></script>
     <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
     <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <!-- Mermaid for diagram rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <script>
+      // Initialize Mermaid with dark theme to match presentation
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: 'dark',
+        themeVariables: {
+          primaryColor: '#667eea',
+          primaryTextColor: '#fff',
+          primaryBorderColor: '#764ba2',
+          lineColor: '#868e96',
+          secondaryColor: '#3d3d3d',
+          tertiaryColor: '#2d2d2d',
+          background: '#1e1e1e',
+          mainBkg: '#2d2d2d',
+          nodeBorder: '#667eea',
+          clusterBkg: '#3d3d3d',
+          titleColor: '#fff',
+          edgeLabelBackground: '#2d2d2d'
+        },
+        flowchart: { curve: 'basis' },
+        sequence: { actorMargin: 50 }
+      });
+
       Reveal.initialize({
         hash: true,
         slideNumber: true,
         transition: 'slide',
         plugins: [ RevealHighlight, RevealNotes ]
+      }).then(() => {
+        // Render Mermaid diagrams after Reveal initializes
+        mermaid.run({
+          querySelector: '.mermaid'
+        });
+
+        // Re-render on slide change (for fragments)
+        Reveal.on('slidechanged', event => {
+          const diagrams = event.currentSlide.querySelectorAll('.mermaid:not([data-processed])');
+          if (diagrams.length) {
+            mermaid.run({ nodes: diagrams });
+          }
+        });
       });
     </script>
   </body>
