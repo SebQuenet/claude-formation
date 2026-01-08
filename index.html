@@ -1750,6 +1750,116 @@ def optimize_image(path: str, max_size: int = 1568) -> bytes:
     img.save(buffer, format='JPEG', quality=85)
     return buffer.getvalue()</code></pre>
           </section>
+
+          <section>
+            <p class="big-idea">What if Claude<br/>could use your computer?</p>
+            <p class="fragment why-statement">Not just see. Act.</p>
+          </section>
+
+          <section>
+            <h3>Computer Use: Claude Controls the Screen</h3>
+            <pre><code class="language-python"># Enable computer use capability
+response = client.messages.create(
+    model="claude-sonnet-4-20250514",
+    max_tokens=4096,
+    tools=[
+        {
+            "type": "computer_20241022",
+            "name": "computer",
+            "display_width_px": 1920,
+            "display_height_px": 1080,
+            "display_number": 1
+        }
+    ],
+    messages=[{
+        "role": "user",
+        "content": "Open the browser and go to github.com"
+    }]
+)
+
+# Claude returns tool_use with action
+# {"action": "mouse_move", "coordinate": [512, 384]}
+# {"action": "click", "button": "left"}
+# {"action": "type", "text": "github.com"}
+# {"action": "key", "key": "Return"}</code></pre>
+          </section>
+
+          <section>
+            <h3>Computer Use Actions</h3>
+            <table style="font-size: 0.7em;">
+              <tr><th>Action</th><th>Parameters</th><th>Use Case</th></tr>
+              <tr><td><code>screenshot</code></td><td>-</td><td>Capture current screen</td></tr>
+              <tr><td><code>mouse_move</code></td><td><code>coordinate: [x, y]</code></td><td>Move cursor</td></tr>
+              <tr><td><code>click</code></td><td><code>button, coordinate</code></td><td>Click elements</td></tr>
+              <tr><td><code>type</code></td><td><code>text</code></td><td>Type text</td></tr>
+              <tr><td><code>key</code></td><td><code>key</code></td><td>Press key (Enter, Escape...)</td></tr>
+              <tr><td><code>scroll</code></td><td><code>coordinate, direction</code></td><td>Scroll page</td></tr>
+              <tr><td><code>drag</code></td><td><code>start, end</code></td><td>Drag and drop</td></tr>
+            </table>
+            <p class="tip">Claude sees screenshots → decides actions → you execute → repeat</p>
+          </section>
+
+          <section>
+            <h3>Computer Use: The Loop</h3>
+            <pre><code class="language-python">def computer_use_loop(task: str):
+    messages = [{"role": "user", "content": task}]
+
+    while True:
+        response = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            tools=[computer_tool],
+            messages=messages
+        )
+
+        if response.stop_reason == "end_turn":
+            break
+
+        # Execute the action Claude requested
+        for block in response.content:
+            if block.type == "tool_use":
+                result = execute_computer_action(block.input)
+                # Take screenshot after action
+                screenshot = capture_screen()
+                messages.append({
+                    "role": "user",
+                    "content": [{
+                        "type": "tool_result",
+                        "tool_use_id": block.id,
+                        "content": [{"type": "image", "source": screenshot}]
+                    }]
+                })</code></pre>
+          </section>
+
+          <section>
+            <h3>Computer Use: Safety First</h3>
+            <div class="section-why">
+              <p><strong>Critical Precautions:</strong></p>
+              <ul style="font-size: 0.8em;">
+                <li>Run in <strong>isolated VM</strong> or container</li>
+                <li>Never on machine with sensitive data</li>
+                <li>Limit network access</li>
+                <li>Human-in-the-loop for destructive actions</li>
+                <li>Avoid banking, email, or auth workflows</li>
+              </ul>
+            </div>
+            <p class="warning">Computer Use is in beta. Claude can make mistakes.</p>
+          </section>
+
+          <section>
+            <h3>Computer Use: Real Applications</h3>
+            <pre><code class="language-python"># QA Automation - test flows without writing selectors
+"Test the checkout flow: add product, fill shipping, complete payment"
+
+# Data Entry - automate legacy systems
+"Fill in the customer form with this data: {customer_json}"
+
+# Web Research - navigate complex sites
+"Find the pricing page and extract the enterprise tier features"
+
+# GUI Testing - test desktop applications
+"Open Photoshop, create new document, add text layer"</code></pre>
+            <p class="punch-line">Automate anything with a screen.<br/>No API required.</p>
+          </section>
         </section>
 
         <!-- ============================================ -->
@@ -2650,6 +2760,49 @@ RUN npm install -g @anthropic-ai/claude-code
     }
   }
 }</code></pre>
+          </section>
+
+          <section>
+            <h3>Keeping Claude Code Updated</h3>
+            <pre><code class="language-bash"># Check current version
+claude --version
+
+# Update to latest
+npm update -g @anthropic-ai/claude-code
+
+# Or reinstall completely
+npm uninstall -g @anthropic-ai/claude-code
+npm install -g @anthropic-ai/claude-code
+
+# Check what changed
+# Release notes: github.com/anthropics/claude-code/releases
+
+# Auto-update (add to shell profile)
+# Claude Code checks for updates on startup
+# Set: CLAUDE_AUTO_UPDATE=true</code></pre>
+            <p class="tip">Updates often include new models, tools, and bug fixes</p>
+          </section>
+
+          <section>
+            <h3>Version Pinning (Teams)</h3>
+            <pre><code class="language-bash"># For consistent team environments:
+
+# package.json (project-level)
+{
+  "devDependencies": {
+    "@anthropic-ai/claude-code": "1.0.33"
+  }
+}
+
+# npx for pinned version
+npx @anthropic-ai/claude-code@1.0.33
+
+# CI/CD: Always pin versions
+npm install -g @anthropic-ai/claude-code@1.0.33
+
+# Check compatibility with your setup
+claude --version  # Should match team standard</code></pre>
+            <p class="warning">Breaking changes can affect team workflows</p>
           </section>
 
           <!-- PUNCH LINE (Jobs) -->
@@ -3813,6 +3966,72 @@ the CLAUDE.md files from the current directory."
           </section>
 
           <section>
+            <h3>Planning & Navigation Commands</h3>
+            <pre><code class="language-bash"># Planning
+/plan              # Enter plan mode - design before implementing
+                   # Claude creates a plan file, you approve, then execute
+
+# Changes & History
+/diff              # View all pending changes in current session
+/undo              # Undo last file modification
+/history           # Show command history
+
+# Information
+/help              # Show all available commands
+/tokens            # Display token count for current context
+/status            # Show current session status
+
+# Quick Actions
+/bug               # Report a bug to Anthropic
+/config            # Open Claude Code configuration</code></pre>
+          </section>
+
+          <section>
+            <h3>Plan Mode: Think Before You Code</h3>
+            <pre><code class="language-bash"># Start plan mode for complex tasks
+/plan
+
+# Claude will:
+# 1. Create a plan file (.claude/plans/task-name.md)
+# 2. Outline the approach, files to modify, steps
+# 3. Wait for your approval
+# 4. Execute only after you say "go"
+
+# Example plan file generated:
+# ## Implementation Plan
+# 1. Add UserService class in src/services/
+# 2. Update API routes in src/routes/users.ts
+# 3. Add database migration for user_preferences
+# 4. Write tests for new functionality
+#
+# **Estimated changes**: 4 files
+# **Risk**: Low - additive changes only</code></pre>
+            <p class="tip">Use /plan for any task touching 3+ files</p>
+          </section>
+
+          <section>
+            <h3>/diff and /undo: Your Safety Net</h3>
+            <pre><code class="language-bash"># After Claude makes changes:
+/diff
+
+# Output:
+# Modified files this session:
+# - src/api/users.ts (+45, -12)
+# - src/models/User.ts (+8, -0)
+# - tests/users.test.ts (+120, -0)
+
+# Something wrong? Undo it:
+/undo
+
+# Reverted: src/api/users.ts
+# (Previous changes still visible with /diff --all)
+
+# Undo multiple:
+/undo 3            # Undo last 3 changes</code></pre>
+            <p class="punch-line">Make changes fearlessly.<br/>Undo mistakes instantly.</p>
+          </section>
+
+          <section>
             <h3>CLAUDE.md - Project Context</h3>
             <p>Automatically loaded into every conversation</p>
             <pre><code class="language-markdown"># Project: E-commerce API
@@ -4613,6 +4832,150 @@ async def get_feature_flags() -> Resource:
     )
 
 # Claude can now read these resources to understand your system</code></pre>
+          </section>
+
+          <section>
+            <p class="big-idea">Up-to-date docs.<br/>Always.</p>
+            <p class="fragment why-statement">Context7: Real-time documentation fetching</p>
+          </section>
+
+          <section>
+            <h3>Context7: Live Documentation MCP</h3>
+            <pre><code class="language-json">// .mcp.json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/claude-code-plugin-context7"]
+    }
+  }
+}
+
+// Now Claude can fetch current docs:
+"What's the latest API for React Query v5?"
+"How do I use the new Prisma client extensions?"
+"Show me Next.js 15 server actions syntax"
+
+// Claude fetches from official docs, not training data</code></pre>
+            <p class="tip">No more outdated examples from 2023</p>
+          </section>
+
+          <section>
+            <h3>Context7: How It Works</h3>
+            <pre><code class="language-text"># 1. Claude identifies you need docs
+"Help me implement authentication with NextAuth v5"
+
+# 2. Context7 resolves the library
+→ resolve-library-id("NextAuth", "authentication")
+→ Returns: /nextauthjs/next-auth
+
+# 3. Context7 fetches relevant docs
+→ query-docs("/nextauthjs/next-auth", "setup authentication")
+→ Returns: Current setup guide, API reference, examples
+
+# 4. Claude uses fresh documentation
+→ Gives you code that actually works today</code></pre>
+          </section>
+
+          <section>
+            <h3>More Essential MCPs</h3>
+            <table style="font-size: 0.55em;">
+              <tr><th>MCP</th><th>What It Does</th><th>Use Case</th></tr>
+              <tr>
+                <td><strong>Notion</strong></td>
+                <td>Read/write Notion pages</td>
+                <td>Update docs, read specs, manage wikis</td>
+              </tr>
+              <tr>
+                <td><strong>Linear</strong></td>
+                <td>Issue tracking</td>
+                <td>Create issues, update status, read backlog</td>
+              </tr>
+              <tr>
+                <td><strong>Jira/Confluence</strong></td>
+                <td>Atlassian suite</td>
+                <td>Enterprise project management</td>
+              </tr>
+              <tr>
+                <td><strong>Sentry</strong></td>
+                <td>Error tracking</td>
+                <td>Investigate errors, get stack traces</td>
+              </tr>
+              <tr>
+                <td><strong>Datadog</strong></td>
+                <td>Monitoring</td>
+                <td>Check metrics, investigate incidents</td>
+              </tr>
+              <tr>
+                <td><strong>Playwright</strong></td>
+                <td>Browser automation</td>
+                <td>E2E testing, scraping, screenshots</td>
+              </tr>
+            </table>
+          </section>
+
+          <section>
+            <h3>Web Search MCP</h3>
+            <pre><code class="language-json">// Enable web search capability
+{
+  "mcpServers": {
+    "web-search": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-web-search"]
+    }
+  }
+}
+
+// Claude can now search the web:
+"What's the current status of the React 19 release?"
+"Find the latest security advisory for lodash"
+"Search for TypeScript 5.4 new features"
+
+// Returns:
+// - Search results with snippets
+// - Source URLs for citations
+// - Date of publication</code></pre>
+          </section>
+
+          <section>
+            <h3>Notion MCP: Living Documentation</h3>
+            <pre><code class="language-bash"># Configure Notion MCP
+{
+  "notion": {
+    "command": "npx",
+    "args": ["-y", "@notionhq/mcp-notion"],
+    "env": {
+      "NOTION_API_KEY": "${NOTION_API_KEY}"
+    }
+  }
+}
+
+# Now you can:
+"Read our API spec from Notion page [page-id]"
+"Update the deployment checklist with today's release"
+"Create a new RFC page for the caching proposal"
+"Search Notion for authentication documentation"</code></pre>
+          </section>
+
+          <section>
+            <h3>Linear MCP: Issue-Driven Development</h3>
+            <pre><code class="language-bash"># Common Linear workflows:
+
+# Read context before coding
+"What's the full description of LIN-1234?"
+
+# Update progress
+"Add a comment to LIN-1234: PR ready for review"
+
+# Create issues from code
+"I found a bug in auth/login.ts - create a Linear issue"
+
+# Close the loop
+"Mark LIN-1234 as done and link to PR #567"
+
+# Sprint planning
+"Show me all unestimated issues in the current sprint"</code></pre>
+            <p class="punch-line">Your issue tracker,<br/>inside your terminal.</p>
           </section>
         </section>
 
@@ -7544,6 +7907,100 @@ Generate a report showing:
             <p class="punch-line">Cheap thinking is expensive.<br/>Expensive thinking is cheap.</p>
             <p class="fragment tip">Use Opus for architecture. Save on formatting.</p>
           </section>
+
+          <section>
+            <p class="big-idea">The dashboard<br/>that shows everything.</p>
+          </section>
+
+          <section>
+            <h3>Anthropic Console: Your Command Center</h3>
+            <pre><code class="language-text">console.anthropic.com
+
+├── Dashboard
+│   ├── Usage graphs (daily/weekly/monthly)
+│   ├── Cost breakdown by model
+│   ├── Request success/failure rates
+│   └── Latency percentiles (p50, p95, p99)
+│
+├── API Keys
+│   ├── Create/revoke keys
+│   ├── Per-key usage tracking
+│   ├── Key permissions (model access)
+│   └── Rate limit configuration
+│
+├── Billing
+│   ├── Current usage & costs
+│   ├── Invoices & receipts
+│   ├── Budget alerts setup
+│   └── Payment methods
+│
+└── Workspaces (Teams)
+    ├── Member management
+    ├── Shared API keys
+    └── Usage per member</code></pre>
+          </section>
+
+          <section>
+            <h3>Console: Usage Insights</h3>
+            <pre><code class="language-text"># What you'll see in the dashboard:
+
+📊 Today's Usage:
+   Requests: 1,247
+   Input tokens: 2.4M
+   Output tokens: 890K
+   Cost: $12.34
+
+📈 Model Distribution:
+   ████████████ Sonnet    68%
+   ████         Haiku     22%
+   ██           Opus      10%
+
+⚡ Performance:
+   Median latency: 1.2s
+   P95 latency: 3.8s
+   Error rate: 0.3%
+
+🔥 Peak hours: 10am-12pm, 2pm-4pm</code></pre>
+          </section>
+
+          <section>
+            <h3>Console: API Key Management</h3>
+            <pre><code class="language-bash"># Best practices for API keys:
+
+# 1. Use different keys per environment
+ANTHROPIC_API_KEY_DEV="sk-ant-dev-..."
+ANTHROPIC_API_KEY_PROD="sk-ant-prod-..."
+
+# 2. Set spending limits per key in Console
+# dev-key: $50/month limit
+# prod-key: $500/month limit
+
+# 3. Restrict model access
+# dev-key: Haiku, Sonnet only
+# prod-key: All models
+
+# 4. Monitor per-key usage
+# See which services consume the most</code></pre>
+            <p class="tip">Never commit keys to git. Use environment variables.</p>
+          </section>
+
+          <section>
+            <h3>Console: Rate Limits by Tier</h3>
+            <table style="font-size: 0.65em;">
+              <tr><th>Tier</th><th>RPM</th><th>TPM</th><th>How to Upgrade</th></tr>
+              <tr><td>Free</td><td>5</td><td>20K</td><td>Add payment method</td></tr>
+              <tr><td>Build (Tier 1)</td><td>50</td><td>40K</td><td>Spend $5</td></tr>
+              <tr><td>Build (Tier 2)</td><td>1,000</td><td>80K</td><td>Spend $40</td></tr>
+              <tr><td>Build (Tier 3)</td><td>2,000</td><td>160K</td><td>Spend $200</td></tr>
+              <tr><td>Build (Tier 4)</td><td>4,000</td><td>400K</td><td>Spend $400</td></tr>
+              <tr><td>Scale</td><td>Custom</td><td>Custom</td><td>Contact sales</td></tr>
+            </table>
+            <p class="warning">RPM = Requests Per Minute, TPM = Tokens Per Minute</p>
+          </section>
+
+          <section>
+            <p class="punch-line">console.anthropic.com<br/>Bookmark it. Check it daily.</p>
+          </section>
         </section>
 
         <!-- ============================================ -->
@@ -9852,15 +10309,87 @@ de gérer l'auth manuellement. Peux-tu adapter?"
 
           <section>
             <h3>The Landscape (2025)</h3>
-            <table style="font-size: 0.6em;">
+            <table style="font-size: 0.55em;">
               <tr><th>Tool</th><th>Model</th><th>Approach</th><th>Price</th></tr>
               <tr><td>Claude Code</td><td>Claude Opus/Sonnet</td><td>CLI + IDE</td><td>Pay-per-token</td></tr>
               <tr><td>GitHub Copilot</td><td>GPT-4 / Claude</td><td>IDE plugin</td><td>$19/month</td></tr>
               <tr><td>Cursor</td><td>GPT-4 / Claude</td><td>Forked VS Code</td><td>$20/month</td></tr>
+              <tr><td>Aider</td><td>Any (GPT/Claude/local)</td><td>CLI</td><td>Pay-per-token</td></tr>
+              <tr><td>Continue.dev</td><td>Any (configurable)</td><td>IDE plugin</td><td>Free / Pay model</td></tr>
+              <tr><td>Supermaven</td><td>Custom</td><td>IDE plugin</td><td>Free / $10/mo</td></tr>
               <tr><td>Codeium</td><td>Custom</td><td>IDE plugin</td><td>Free / $12/mo</td></tr>
               <tr><td>Amazon Q</td><td>Custom</td><td>IDE + CLI</td><td>$19/month</td></tr>
-              <tr><td>Tabnine</td><td>Custom</td><td>IDE plugin</td><td>$12/month</td></tr>
             </table>
+          </section>
+
+          <section>
+            <h3>Aider: The CLI Pioneer</h3>
+            <pre><code class="language-bash"># Aider - another CLI-first tool
+pip install aider-chat
+
+# Similar to Claude Code but:
+# - Open source
+# - Works with ANY model (OpenAI, Claude, Ollama)
+# - Git-focused workflow
+# - Pair programming style
+
+aider --model claude-3-5-sonnet
+
+# Strengths:
+# - Model flexibility (use local LLMs!)
+# - Strong git integration
+# - Active open-source community
+
+# Weaknesses:
+# - Less polished UX than Claude Code
+# - No extended thinking
+# - Smaller context handling</code></pre>
+          </section>
+
+          <section>
+            <h3>Continue.dev: IDE-Native Freedom</h3>
+            <pre><code class="language-json">// VS Code / JetBrains extension
+// config.json
+{
+  "models": [
+    {"provider": "anthropic", "model": "claude-sonnet-4"},
+    {"provider": "openai", "model": "gpt-4"},
+    {"provider": "ollama", "model": "codellama"}
+  ]
+}
+
+// Strengths:
+// - Bring your own model
+// - Open source
+// - Deep IDE integration
+// - Works offline with local models
+
+// Weaknesses:
+// - Setup complexity
+// - No agentic workflows (yet)
+// - Less specialized than Claude Code</code></pre>
+          </section>
+
+          <section>
+            <h3>Supermaven: Speed Demon</h3>
+            <pre><code class="language-text"># Supermaven - built for raw speed
+
+Key differentiators:
+- 1M token context window (largest!)
+- Sub-millisecond latency for completions
+- Trained on code specifically
+
+Strengths:
+✓ Incredibly fast autocomplete
+✓ Massive context (1M tokens)
+✓ Great for large files
+
+Weaknesses:
+✗ Limited reasoning capabilities
+✗ Autocomplete focused (not agentic)
+✗ No extended thinking mode
+✗ Less versatile than Claude</code></pre>
+            <p class="tip">Great for autocomplete, less for complex reasoning</p>
           </section>
 
           <section>
@@ -9969,14 +10498,54 @@ de gérer l'auth manuellement. Peux-tu adapter?"
           </section>
 
           <section>
-            <h2>Resources</h2>
-            <ul>
-              <li><a href="https://docs.anthropic.com">docs.anthropic.com</a> - Official docs</li>
-              <li><a href="https://github.com/anthropics/anthropic-cookbook">anthropic-cookbook</a> - Examples</li>
-              <li><a href="https://github.com/anthropics/courses">anthropic/courses</a> - Deep dives</li>
-              <li><a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a> - MCP spec</li>
+            <h2>Official Resources</h2>
+            <ul style="font-size: 0.8em;">
+              <li><a href="https://docs.anthropic.com">docs.anthropic.com</a> - Official documentation</li>
+              <li><a href="https://github.com/anthropics/anthropic-cookbook">anthropic-cookbook</a> - Code examples</li>
+              <li><a href="https://github.com/anthropics/courses">anthropic/courses</a> - Deep dive tutorials</li>
+              <li><a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a> - Claude Code repo</li>
+              <li><a href="https://modelcontextprotocol.io">modelcontextprotocol.io</a> - MCP specification</li>
               <li><a href="https://github.com/modelcontextprotocol/servers">MCP servers</a> - Ready-to-use servers</li>
             </ul>
+          </section>
+
+          <section>
+            <h2>Community & Support</h2>
+            <div style="font-size: 0.75em;">
+              <p><strong>Get Help:</strong></p>
+              <ul>
+                <li><a href="https://github.com/anthropics/claude-code/issues">GitHub Issues</a> - Bug reports & feature requests</li>
+                <li><a href="https://github.com/anthropics/claude-code/discussions">GitHub Discussions</a> - Q&A, tips, showcases</li>
+                <li><a href="https://discord.gg/anthropic">Anthropic Discord</a> - Real-time community chat</li>
+                <li><code>/bug</code> - Report issues directly from Claude Code</li>
+              </ul>
+              <p style="margin-top: 1em;"><strong>Learn from others:</strong></p>
+              <ul>
+                <li>Reddit: r/ClaudeAI, r/LocalLLaMA</li>
+                <li>Twitter/X: #ClaudeCode, @AnthropicAI</li>
+                <li>YouTube: Search "Claude Code tutorial"</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2>Stay Updated</h2>
+            <pre><code class="language-bash"># Follow Claude Code releases
+gh release list -R anthropics/claude-code
+gh release view -R anthropics/claude-code --web
+
+# Subscribe to release notifications
+# github.com/anthropics/claude-code → Watch → Releases only
+
+# Anthropic blog for major announcements
+# anthropic.com/news
+
+# Check your current version
+claude --version
+
+# See what's new
+/help changelog  # If available</code></pre>
+            <p class="tip">New features ship frequently. Stay current!</p>
           </section>
 
           <!-- CLOSING SEQUENCE -->
