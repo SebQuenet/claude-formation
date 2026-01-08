@@ -30,6 +30,100 @@
       .reveal .slides section .fragment.highlight-current-green.current-fragment {
         color: #a6e22e;
       }
+      /* Seth Godin / Simon Sinek inspired styles */
+      .reveal .big-idea {
+        font-size: 2.5em;
+        font-weight: bold;
+        line-height: 1.2;
+        margin: 0.5em 0;
+      }
+      .reveal .big-idea-small {
+        font-size: 1.8em;
+        font-weight: bold;
+        line-height: 1.3;
+      }
+      .reveal .why-statement {
+        font-size: 1.4em;
+        color: #a6e22e;
+        font-style: italic;
+        margin: 1em 0;
+      }
+      .reveal .contrast-old {
+        color: #ff6b6b;
+        text-decoration: line-through;
+        opacity: 0.7;
+      }
+      .reveal .contrast-new {
+        color: #51cf66;
+        font-weight: bold;
+      }
+      .reveal .single-stat {
+        font-size: 4em;
+        font-weight: bold;
+        color: #ffd43b;
+      }
+      .reveal .stat-label {
+        font-size: 1.2em;
+        color: #868e96;
+        margin-top: 0.5em;
+      }
+      .reveal .punch-line {
+        font-size: 1.6em;
+        font-weight: bold;
+        border-left: 4px solid #667eea;
+        padding-left: 20px;
+        margin: 1em 0;
+      }
+      .reveal .section-why {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+      .reveal .golden-circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .reveal .circle {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .reveal .circle-why {
+        width: 100px;
+        height: 100px;
+        background: #ffd43b;
+        color: #000;
+        font-size: 1.2em;
+      }
+      .reveal .circle-how {
+        width: 150px;
+        height: 150px;
+        background: #748ffc;
+        color: #fff;
+      }
+      .reveal .circle-what {
+        width: 200px;
+        height: 200px;
+        background: #495057;
+        color: #fff;
+      }
+      .reveal .quote-block {
+        font-size: 1.3em;
+        font-style: italic;
+        border-left: 4px solid #ffd43b;
+        padding-left: 20px;
+        margin: 1em 0;
+      }
+      .reveal .quote-author {
+        font-size: 0.8em;
+        color: #868e96;
+        font-style: normal;
+      }
     </style>
   </head>
   <body>
@@ -40,9 +134,16 @@
         <!-- TITLE SLIDE -->
         <!-- ============================================ -->
         <section>
+          <p class="why-statement">The game has changed.</p>
           <h1>Claude Best Practices</h1>
-          <h3>Advanced Guide for Power Users</h3>
-          <p><small>API Development • Claude Code • Agentic Workflows</small></p>
+          <p class="big-idea-small">From coding assistant to autonomous agent</p>
+          <p style="margin-top: 2em; font-size: 0.7em; color: #868e96;">For developers who've moved past the basics</p>
+        </section>
+
+        <!-- HOOK SLIDE - Simon Sinek "Start with Why" -->
+        <section>
+          <p class="big-idea">What if you could 10x your output<br/>without 10x the effort?</p>
+          <p class="fragment" style="margin-top: 1em; color: #868e96;">This isn't about typing faster.<br/>It's about thinking differently.</p>
         </section>
 
         <!-- ============================================ -->
@@ -156,410 +257,364 @@
           <div class="part-header">
             <h2>Part 1</h2>
             <h1>The New Paradigm</h1>
-            <p>Why everything changed in 2024-2025</p>
+            <p class="why-statement">Why the old rules no longer apply</p>
           </div>
         </section>
 
-        <!-- SECTION 1: THE PARADIGM SHIFT THE PARADIGM SHIFT -->
+        <!-- SECTION 1: THE PARADIGM SHIFT -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY slide (Sinek) - emotional hook first -->
           <section>
-            <h2>1. The Paradigm Shift</h2>
-            <p>Why everything has changed with AI agents</p>
-            <p style="font-size: 0.6em; color: #888;">From autocomplete to autonomous coding</p>
+            <p class="big-idea">Everything you learned about coding<br/>is being rewritten.</p>
+            <p class="fragment why-statement">Not because you were wrong.<br/>Because the tools changed the game.</p>
+          </section>
+
+          <!-- SINGLE STAT slide (Godin) -->
+          <section>
+            <p class="single-stat">19%</p>
+            <p class="stat-label">Experienced developers took LONGER with AI tools</p>
+            <p class="fragment" style="margin-top: 1em; font-size: 0.8em; color: #868e96;">METR Research, 2025</p>
+            <p class="fragment punch-line">Speed ≠ Productivity</p>
+          </section>
+
+          <!-- CONTRAST slide (Duarte) - What IS vs What COULD BE -->
+          <section>
+            <h3>The Evolution</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div class="fragment">
+                <p style="font-size: 3em;">2022</p>
+                <p>AI suggests 10%</p>
+                <p style="color: #868e96;">Autocomplete</p>
+              </div>
+              <div class="fragment">
+                <p style="font-size: 3em;">2024</p>
+                <p>AI writes 60%</p>
+                <p style="color: #868e96;">Copilot++</p>
+              </div>
+              <div class="fragment">
+                <p style="font-size: 3em; color: #ffd43b;">2025</p>
+                <p>AI implements</p>
+                <p style="color: #51cf66;">Agentic</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- QUOTE slide (Jobs-style reveal) -->
+          <section>
+            <div class="quote-block">
+              "AI Code Assistants"
+            </div>
+            <p class="fragment" style="font-size: 2em; margin-top: 0.5em;">↓</p>
+            <div class="fragment quote-block" style="border-color: #51cf66;">
+              "Agentic IDEs"
+            </div>
+            <p class="fragment stat-label">The terminology shift tells the story</p>
+          </section>
+
+          <!-- VIBE CODING - Dramatic reveal -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Collins Dictionary Word of the Year 2025</p>
+            <p class="big-idea" style="color: #ffd43b;">"Vibe Coding"</p>
+            <p class="fragment why-statement">Describe what you want.<br/>AI writes the code.</p>
+            <p class="fragment" style="margin-top: 1em; font-size: 0.8em;">— Coined by Andrej Karpathy, OpenAI</p>
+          </section>
+
+          <!-- CONTRAST - Old vs New (Duarte) -->
+          <section>
+            <div style="display: flex; justify-content: space-around;">
+              <div style="text-align: center;">
+                <p class="contrast-old" style="font-size: 1.5em;">Traditional</p>
+                <pre><code class="language-python" style="font-size: 0.8em;">def calculate_tax(income):
+    # Write every line
+    # yourself...</code></pre>
+              </div>
+              <div style="text-align: center;">
+                <p class="contrast-new" style="font-size: 1.5em;">Vibe Coding</p>
+                <pre><code class="language-text" style="font-size: 0.8em;">"Write a tax calculator
+with 2024 brackets and
+deduction support"</code></pre>
+              </div>
+            </div>
+            <p class="fragment warning" style="margin-top: 1em;">⚠️ Risk: Using code you don't understand</p>
+          </section>
+
+          <!-- THE PARADOX - Single powerful stat (Godin) -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Google's 2025 Data</p>
+            <p class="single-stat">30%</p>
+            <p class="stat-label">of code now uses AI suggestions</p>
           </section>
 
           <section>
-            <h3>The Evolution (2022-2025)</h3>
-            <pre><code class="language-bash"># 2022: Autocomplete Era
-GitHub Copilot → "Suggest the next line"
-Developer writes 90%, AI suggests 10%
-
-# 2023: Assistant Era
-ChatGPT/Claude → "Help me write this function"
-Developer writes 70%, AI writes 30%
-
-# 2024: Copilot++ Era
-Cursor/Claude Code → "Build this feature"
-Developer writes 40%, AI writes 60%
-
-# 2025: Agentic Era
-Autonomous agents → "Here's the spec, ship it"
-Developer reviews/orchestrates, AI implements
-
-# The terminology shift tells the story:
-"AI Code Assistants" → "Agentic IDEs"</code></pre>
-            <p class="tip">Source: <a href="https://thenewstack.io/ai-engineering-trends-in-2025-agents-mcp-and-vibe-coding/">The New Stack - AI Engineering Trends 2025</a></p>
+            <p style="font-size: 1.2em; color: #868e96;">But productivity increased only</p>
+            <p class="single-stat">10%</p>
+            <p class="fragment punch-line">Where did the other 20% go?</p>
           </section>
 
+          <!-- THE INSIGHT - One idea (Godin) -->
           <section>
-            <h3>The "Vibe Coding" Movement</h3>
-            <ul>
-              <li><strong>Coined by</strong>: Andrej Karpathy (OpenAI co-founder), Feb 2025</li>
-              <li><strong>Named</strong>: Collins Dictionary Word of the Year 2025</li>
-              <li><strong>Definition</strong>: Describe what you want → AI generates code</li>
-            </ul>
-            <pre><code class="language-bash"># Traditional coding
-def calculate_tax(income):
-    # Write every line yourself...
-
-# Vibe coding
-"Write a tax calculator that handles
-brackets for 2024, supports deductions,
-and outputs a detailed breakdown."
-
-→ AI generates complete implementation</code></pre>
-            <p class="warning">Risk: Using code without fully understanding it</p>
-            <p class="tip">Source: <a href="https://en.wikipedia.org/wiki/Vibe_coding">Wikipedia - Vibe Coding</a></p>
+            <p class="big-idea">The bottleneck shifted.</p>
+            <div class="fragment" style="margin-top: 1em;">
+              <p><span class="contrast-old">Writing code</span> → Fast now</p>
+              <p><span class="contrast-new">Reviewing code</span> → New bottleneck</p>
+            </div>
           </section>
 
+          <!-- METR INSIGHT - Quote style (Jobs) -->
           <section>
-            <h3>The Productivity Paradox</h3>
-            <pre><code class="language-bash"># Google's Data (2025):
-# - 30% of code uses AI-generated suggestions
-# - Only 10% productivity increase
-# - Why the gap?
-
-# The Bottleneck Shifted:
-#
-#   Before AI:         After AI:
-#   ┌─────────┐        ┌─────────┐
-#   │ WRITING │ ← slow │ Writing │ ← fast!
-#   │  CODE   │        │  Code   │
-#   └────┬────┘        └────┬────┘
-#        ↓                  ↓
-#   ┌─────────┐        ┌─────────┐
-#   │ Review  │        │ REVIEW  │ ← NEW bottleneck
-#   └─────────┘        │  CODE   │
-#                      └─────────┘
-
-# All that AI code must be reviewed, verified,
-# and often fixed by human developers.</code></pre>
-            <p class="tip">Source: <a href="https://intellyx.com/2025/12/03/ai-code-gen-time-to-shift-left-again/">Intellyx - Time to Shift Left Again</a></p>
+            <div class="quote-block">
+              "AI helps most when YOU don't know the answer.<br/>
+              AI helps least when you could type it faster."
+            </div>
+            <p class="fragment quote-author">— METR Research, 2025</p>
           </section>
 
+          <!-- TDD SECTION - Dramatic tension -->
           <section>
-            <h3>The METR Study Surprise</h3>
-            <pre><code class="language-bash"># METR Research (July 2025):
-# Experienced developers using AI tools
-# took 19% LONGER than without AI
-
-# Why?
-# 1. Context switching between AI and manual work
-# 2. Reviewing/fixing AI suggestions
-# 3. Prompt iteration time
-# 4. Fighting AI hallucinations
-
-# Key insight:
-# "AI tools are useful in many contexts,
-#  for example, for less experienced developers,
-#  or for developers working in unfamiliar codebases"
-
-# Translation:
-# AI helps most when YOU don't know the answer
-# AI helps least when you could type it faster</code></pre>
-            <p class="tip">Source: <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR Study</a></p>
+            <p class="big-idea">TDD is dead.</p>
+            <p class="fragment" style="font-size: 1.5em; margin-top: 0.5em;">...or is it?</p>
           </section>
 
+          <!-- Classic TDD - Simple visual -->
           <section>
-            <h3>Why Traditional TDD Breaks</h3>
-            <pre><code class="language-bash"># Classic TDD Rhythm:
-# 1. RED:    Write failing test
-# 2. GREEN:  Write minimal code to pass
-# 3. REFACTOR: Clean up
-# Repeat in tiny increments
-
-# What AI Agents Actually Do:
-# 1. Write ALL tests at once
-# 2. Write FULL implementation in one pass
-# 3. Maybe refactor if you ask nicely
-
-# The core TDD benefit - iterative design
-# through small steps - gets skipped entirely.
-
-# AI skips "Red" phase:
-# "Why write a failing test when I can
-#  just write the whole thing?"</code></pre>
-            <p class="tip">Source: <a href="https://www.brgr.one/blog/ai-coding-agents-tdd-enforcement">Making AI Agents Follow True TDD</a></p>
+            <h3>Classic TDD Rhythm</h3>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 1em;">
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #ff6b6b;">RED</p>
+                <p>Write failing test</p>
+              </div>
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #51cf66;">GREEN</p>
+                <p>Make it pass</p>
+              </div>
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #748ffc;">REFACTOR</p>
+                <p>Clean up</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Tiny increments. Tight feedback loops.</p>
           </section>
 
+          <!-- What AI Does - Contrast -->
           <section>
-            <h3>But Tests Are MORE Important Now</h3>
-            <pre><code class="language-bash"># Paradox: TDD rhythm breaks, but tests matter more
-
-# Why tests are now CRITICAL:
-
-# 1. Tests are CONTEXT ANCHORS
-#    Without tests, AI hallucinates non-existent methods
-#    Tests ground the AI in reality
-
-# 2. Tests are SPECIFICATIONS
-#    "Write code that passes these tests"
-#    = Unambiguous requirements for AI
-
-# 3. Tests are GUARDRAILS
-#    AI wanders into "useless territory" without them
-#    Tests constrain the solution space
-
-# 4. Tests enable VERIFICATION
-#    You can't review 1000 lines of AI code
-#    You CAN run 100 tests in seconds</code></pre>
-            <p class="tip">Source: <a href="https://momentic.ai/blog/test-driven-development">How AI Will Bring TDD Back</a></p>
+            <h3>What AI Actually Does</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment" style="font-size: 1.3em;">1. Writes ALL tests at once</p>
+              <p class="fragment" style="font-size: 1.3em;">2. Writes FULL implementation in one pass</p>
+              <p class="fragment" style="font-size: 1.3em;">3. Maybe refactors if you ask nicely</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">The iterative design benefit? Skipped entirely.</p>
           </section>
 
+          <!-- PARADOX slide - One big idea -->
           <section>
-            <h3>The New TDD: Tests as Specs</h3>
-            <pre><code class="language-bash"># Old TDD: Tests drive DESIGN
-# New TDD: Tests drive AI BEHAVIOR
+            <p class="big-idea">TDD rhythm breaks.<br/><span class="fragment" style="color: #ffd43b;">But tests matter MORE.</span></p>
+          </section>
 
-# Workflow that works with agents:
+          <!-- WHY tests matter - 4 cards -->
+          <section>
+            <h3>Tests Are Now...</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 1em; font-size: 0.9em;">
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Context Anchors</p>
+                <p>Ground AI in reality</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Specifications</p>
+                <p>Unambiguous requirements</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Guardrails</p>
+                <p>Constrain the solution space</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Verification</p>
+                <p>100 tests > 1000 lines of review</p>
+              </div>
+            </div>
+          </section>
 
-# 1. Write acceptance tests FIRST (still TDD!)
-describe('Payment Processing', () =&gt; {
+          <!-- NEW TDD - Simple contrast -->
+          <section>
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+              <div>
+                <p class="contrast-old" style="font-size: 1.3em;">Old TDD</p>
+                <p>Tests drive <strong>design</strong></p>
+              </div>
+              <p style="font-size: 2em;">→</p>
+              <div>
+                <p class="contrast-new" style="font-size: 1.3em;">New TDD</p>
+                <p>Tests drive <strong>AI behavior</strong></p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tests as specs - Code example -->
+          <section>
+            <h3>Tests as Specifications</h3>
+            <pre><code class="language-javascript">describe('Payment Processing', () => {
   it('charges card and creates order')
   it('handles declined cards gracefully')
   it('sends confirmation email')
   it('is idempotent for retries')
-})
+})</code></pre>
+            <p class="fragment punch-line" style="margin-top: 1em;">"Implement code that makes these tests pass."</p>
+            <p class="fragment" style="color: #868e96;">Human reviews BEHAVIOR, not every line.</p>
+          </section>
 
-# 2. Give tests to AI as specification
-"Implement code that makes these tests pass.
-Follow existing patterns in src/services/.
-Do not modify the tests."
-
-# 3. AI implements, tests verify
-# 4. Human reviews BEHAVIOR, not every line</code></pre>
+          <!-- E2E vs Unit - Dramatic reveal -->
+          <section>
+            <p class="big-idea">E2E tests beat unit tests.</p>
+            <p class="fragment why-statement">For AI-generated code.</p>
           </section>
 
           <section>
-            <h3>E2E Tests Win Over Unit Tests</h3>
-            <pre><code class="language-bash"># Discovery from agentic coding teams:
-
-# Unit tests with AI:
-# - AI writes tests that pass its own code
-# - Tests become tautological
-# - "This function returns X" - yes, you just wrote it
-
-# E2E tests with AI:
-# - Test real user flows
-# - AI can't game them as easily
-# - Actually verify BEHAVIOR works
-
-# Recommended workflow:
-# 1. Write E2E tests for user stories
-# 2. Let AI write code
-# 3. Run E2E tests
-# 4. AI fixes failures
-# 5. Human reviews final result
-
-# Unit tests: Generated AFTER for regression</code></pre>
-            <p class="tip">Source: <a href="https://plausiblefutures.substack.com/p/vibe-coding-in-2025-a-technical-guide">Vibe Coding Guide 2025</a></p>
+            <h3>Why E2E Wins</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div style="text-align: center;">
+                <p class="contrast-old" style="font-size: 1.2em;">Unit Tests</p>
+                <p style="font-size: 0.9em;">AI tests its own code<br/>Becomes tautological</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="contrast-new" style="font-size: 1.2em;">E2E Tests</p>
+                <p style="font-size: 0.9em;">Test real user flows<br/>AI can't game them</p>
+              </div>
+            </div>
           </section>
 
+          <!-- ROLE CHANGE - Big idea -->
           <section>
-            <h3>The Shift Left Returns</h3>
-            <pre><code class="language-bash"># "Shift Left" = Move quality checks EARLIER
-
-# Traditional waterfall:
-# Code → Code → Code → TEST (bottleneck!) → Ship
-
-# Shift left (2010s):
-# Code → Test → Code → Test → Ship
-
-# AI era shift left (2025):
-# Spec/Test → AI Codes → Auto-Test → Human Review → Ship
-#     ↑                      ↑
-#     └── Quality defined    └── Quality verified
-#         BEFORE coding          DURING coding
-
-# The bottleneck isn't testing anymore
-# It's SPECIFICATION and REVIEW</code></pre>
-            <p class="tip">Source: <a href="https://blog.qasource.com/shift-left-testing-a-beginners-guide-to-advancing-automation-with-generative-ai">QASource - Shift Left with Gen AI</a></p>
+            <p style="color: #868e96; font-size: 1.2em;">2020</p>
+            <p class="contrast-old" style="font-size: 1.8em;">Developer = Code Writer</p>
+            <p style="font-size: 2em; margin: 0.5em 0;">↓</p>
+            <p style="color: #868e96; font-size: 1.2em;">2025</p>
+            <p class="contrast-new" style="font-size: 1.8em;">Developer = AI Orchestrator</p>
           </section>
 
+          <!-- Skills shift - Visual cards -->
           <section>
-            <h3>New Developer Role: Orchestrator</h3>
-            <pre><code class="language-bash"># 2020: Developer = Code Writer
-# 2025: Developer = AI Orchestrator
-
-# Skills that matter now:
-# ✓ Architecture & system design
-# ✓ Writing precise specifications
-# ✓ Prompt engineering
-# ✓ Code review judgment
-# ✓ Quality assessment
-# ✓ Integration & glue work
-# ✓ Debugging AI mistakes
-
-# Skills that matter LESS:
-# - Typing speed
-# - Memorizing syntax
-# - Boilerplate writing
-# - Repetitive implementations
-
-# New mental model:
-# "I have 5 AI developers working for me.
-#  How do I direct them effectively?"</code></pre>
-            <p class="tip">Source: <a href="https://redmonk.com/kholterhoff/2025/12/22/10-things-developers-want-from-their-agentic-ides-in-2025/">RedMonk - Agentic IDEs 2025</a></p>
+            <h3>Skills That Matter Now</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.85em; margin-top: 1em;">
+              <div class="fragment" style="color: #51cf66;">✓ Architecture & system design</div>
+              <div class="fragment" style="color: #51cf66;">✓ Writing precise specifications</div>
+              <div class="fragment" style="color: #51cf66;">✓ Prompt engineering</div>
+              <div class="fragment" style="color: #51cf66;">✓ Code review judgment</div>
+            </div>
+            <div class="fragment" style="margin-top: 1.5em;">
+              <p style="color: #868e96; font-size: 0.9em;">What matters less: Typing speed, memorizing syntax, boilerplate</p>
+            </div>
           </section>
 
+          <!-- MENTAL MODEL - Quote -->
           <section>
-            <h3>The Parallel Agent Lifestyle</h3>
-            <pre><code class="language-bash"># Simon Willison's approach (2025):
-# "Embrace the parallel coding agent lifestyle"
-
-# Instead of:
-# Task 1 → Complete → Task 2 → Complete → Task 3
-
-# Now:
-# Task 1 → Agent A (background)
-# Task 2 → Agent B (background)
-# Task 3 → Agent C (background)
-# You: Review outputs, provide feedback, merge
-
-# Multi-agent workflow:
-"Agent 1: Implement the API endpoint"
-"Agent 2: Write the frontend component"
-"Agent 3: Generate the tests"
-"Agent 4: Update the documentation"
-
-# All run in parallel, you review all outputs</code></pre>
+            <div class="quote-block">
+              "I have 5 AI developers working for me.<br/>
+              How do I direct them effectively?"
+            </div>
+            <p class="fragment quote-author">— The new developer mental model</p>
           </section>
 
+          <!-- PARALLEL - Quote -->
           <section>
-            <h3>Why Old Workflows Fail</h3>
-            <pre><code class="language-bash"># ❌ Manual line-by-line coding
-#    → Too slow, AI generates faster
-
-# ❌ Traditional TDD (tiny red-green cycles)
-#    → AI doesn't work in tiny steps
-
-# ❌ Code-then-test
-#    → No guardrails = AI hallucinations
-
-# ❌ Trust but don't verify
-#    → AI makes confident mistakes
-
-# ❌ Review every line
-#    → Bottleneck, can't scale
-
-# ❌ One task at a time
-#    → Underutilizes AI parallelism
-
-# ❌ Detailed implementation specs
-#    → Over-constrains AI creativity
-
-# ❌ No specs at all (pure vibe coding)
-#    → Garbage in, garbage out</code></pre>
+            <div class="quote-block">
+              "Embrace the parallel coding agent lifestyle."
+            </div>
+            <p class="quote-author">— Simon Willison, 2025</p>
           </section>
 
+          <!-- PARALLEL - Visual -->
           <section>
-            <h3>Workflows That Work (2025)</h3>
-            <pre><code class="language-bash"># ✅ Spec-Driven Development
-# Write acceptance criteria → AI implements → verify
-
-# ✅ Test-as-Spec Pattern
-# Write E2E tests first → AI writes code to pass them
-
-# ✅ Guardrail-Heavy Automation
-# TypeScript strict + ESLint + tests + type checks
-# AI must pass ALL before human reviews
-
-# ✅ Parallel Agent Orchestration
-# Multiple agents on related tasks, sync at review
-
-# ✅ Iterative Refinement Loops
-# AI drafts → You critique → AI refines → repeat
-
-# ✅ Human-Prompted, Agent-Executed, Human-Reviewed
-# The "HAH" pattern becoming standard by 2026</code></pre>
-            <p class="tip">Source: <a href="https://plausiblefutures.substack.com/p/vibe-coding-in-2025-a-technical-guide">Vibe Coding 2025 Guide</a></p>
+            <h3>Parallel Agent Orchestration</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em; font-size: 0.9em;">
+              <div class="fragment" style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 8px;">
+                <p style="color: #748ffc;">Agent 1</p>
+                <p>API endpoint</p>
+              </div>
+              <div class="fragment" style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 8px;">
+                <p style="color: #748ffc;">Agent 2</p>
+                <p>Frontend</p>
+              </div>
+              <div class="fragment" style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 8px;">
+                <p style="color: #748ffc;">Agent 3</p>
+                <p>Tests</p>
+              </div>
+              <div class="fragment" style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 8px;">
+                <p style="color: #748ffc;">Agent 4</p>
+                <p>Docs</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #ffd43b;">You: Review all outputs, merge the best</p>
           </section>
 
+          <!-- WHAT FAILS - Dramatic list -->
           <section>
-            <h3>The New Pipeline</h3>
-            <pre><code class="language-mermaid">flowchart LR
-    subgraph Human["Human (Orchestrator)"]
-        Spec[Write Spec/Tests]
-        Review[Review & Approve]
-    end
-
-    subgraph AI["AI Agents"]
-        Implement[Implement Code]
-        GenTests[Generate Unit Tests]
-        Docs[Generate Docs]
-    end
-
-    subgraph Auto["Automated Checks"]
-        Types[TypeScript]
-        Lint[ESLint]
-        Tests[Run Tests]
-        Build[Build]
-    end
-
-    Spec --> Implement
-    Implement --> Types --> Lint --> Tests --> Build
-    Build -->|Pass| Review
-    Build -->|Fail| Implement
-    Review -->|Approve| Deploy[Deploy]
-    Review -->|Request Changes| Implement
-
-    style Spec fill:#3b82f6
-    style Review fill:#3b82f6
-    style Deploy fill:#22c55e</code></pre>
+            <h3 style="color: #ff6b6b;">What Doesn't Work Anymore</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85em; margin-top: 1em;">
+              <p class="fragment">❌ Line-by-line coding</p>
+              <p class="fragment">❌ Tiny TDD cycles</p>
+              <p class="fragment">❌ Code then test</p>
+              <p class="fragment">❌ Trust without verify</p>
+              <p class="fragment">❌ Review every line</p>
+              <p class="fragment">❌ One task at a time</p>
+            </div>
           </section>
 
+          <!-- WHAT WORKS - Contrast -->
           <section>
-            <h3>Morning Vibe, Overnight Agent</h3>
-            <pre><code class="language-bash"># Recommended hybrid workflow for teams:
-
-# MORNING (Human creative time):
-# - Vibe code new features
-# - Experiment and prototype
-# - Make architectural decisions
-
-# AFTERNOON (Handoff):
-# - Commit working prototype
-# - Write acceptance criteria for polish
-# - Queue agent tasks for overnight
-
-# OVERNIGHT (Agent work time):
-# - Agent adds comprehensive tests
-# - Agent writes documentation
-# - Agent adds error handling
-# - Agent fixes lint/type issues
-
-# NEXT MORNING (Review time):
-# - Review agent PRs
-# - Merge what's good
-# - Provide feedback on what needs work
-
-# Cycle repeats</code></pre>
+            <h3 style="color: #51cf66;">What Works in 2025</h3>
+            <div style="font-size: 0.95em; margin-top: 1em;">
+              <p class="fragment">✅ <strong>Spec-Driven Development</strong></p>
+              <p class="fragment">✅ <strong>Tests as Specifications</strong></p>
+              <p class="fragment">✅ <strong>Guardrail-Heavy Automation</strong></p>
+              <p class="fragment">✅ <strong>Parallel Agent Orchestration</strong></p>
+              <p class="fragment">✅ <strong>Iterative Refinement Loops</strong></p>
+            </div>
           </section>
 
+          <!-- DAILY RHYTHM - Simple visual -->
           <section>
-            <h3>Key Takeaways: The Shift</h3>
-            <ul>
-              <li><strong>Bottleneck moved</strong>: From writing to reviewing</li>
-              <li><strong>TDD evolved</strong>: Tests are specs, not design drivers</li>
-              <li><strong>E2E > Unit</strong>: For AI-generated code verification</li>
-              <li><strong>Guardrails essential</strong>: Types, lint, tests = AI constraints</li>
-              <li><strong>Parallel workflows</strong>: Multiple agents, you orchestrate</li>
-              <li><strong>Role changed</strong>: From writer to architect/reviewer</li>
-              <li><strong>Speed ≠ productivity</strong>: Quality verification is the limit</li>
-            </ul>
+            <h3>The New Daily Rhythm</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em; font-size: 0.85em;">
+              <div class="fragment section-why" style="width: 30%;">
+                <p style="color: #ffd43b;">Morning</p>
+                <p>Vibe code<br/>Prototype<br/>Decide</p>
+              </div>
+              <div class="fragment section-why" style="width: 30%;">
+                <p style="color: #748ffc;">Afternoon</p>
+                <p>Queue tasks<br/>Write specs<br/>Handoff</p>
+              </div>
+              <div class="fragment section-why" style="width: 30%;">
+                <p style="color: #51cf66;">Next AM</p>
+                <p>Review PRs<br/>Merge good<br/>Feedback</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Overnight: Agents polish, test, document</p>
           </section>
 
+          <!-- KEY TAKEAWAYS - One per line (Godin style) -->
           <section>
-            <h3>Resources</h3>
-            <ul style="font-size: 0.7em;">
-              <li><a href="https://thenewstack.io/ai-engineering-trends-in-2025-agents-mcp-and-vibe-coding/">AI Engineering Trends 2025 - The New Stack</a></li>
-              <li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR AI Developer Productivity Study</a></li>
-              <li><a href="https://momentic.ai/blog/test-driven-development">How AI Will Bring TDD Back - Momentic</a></li>
-              <li><a href="https://www.brgr.one/blog/ai-coding-agents-tdd-enforcement">Making AI Agents Follow True TDD</a></li>
-              <li><a href="https://plausiblefutures.substack.com/p/vibe-coding-in-2025-a-technical-guide">Vibe Coding 2025 Technical Guide</a></li>
-              <li><a href="https://redmonk.com/kholterhoff/2025/12/22/10-things-developers-want-from-their-agentic-ides-in-2025/">What Developers Want from Agentic IDEs</a></li>
-              <li><a href="https://intellyx.com/2025/12/03/ai-code-gen-time-to-shift-left-again/">AI Code Gen: Time to Shift Left Again</a></li>
+            <h3>The Shift</h3>
+            <p class="fragment punch-line">Bottleneck: Writing → Reviewing</p>
+            <p class="fragment punch-line">TDD: Design driver → AI spec</p>
+            <p class="fragment punch-line">Tests: E2E > Unit for AI code</p>
+            <p class="fragment punch-line">Role: Writer → Orchestrator</p>
+          </section>
+
+          <!-- FINAL INSIGHT -->
+          <section>
+            <p class="big-idea">Speed ≠ Productivity</p>
+            <p class="fragment why-statement">Quality verification is the new limit.</p>
+          </section>
+
+          <!-- Resources (keep as reference) -->
+          <section>
+            <h3>Deep Dive Resources</h3>
+            <ul style="font-size: 0.65em; columns: 2; column-gap: 40px;">
+              <li><a href="https://thenewstack.io/ai-engineering-trends-in-2025-agents-mcp-and-vibe-coding/">AI Engineering Trends 2025</a></li>
+              <li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR Productivity Study</a></li>
+              <li><a href="https://momentic.ai/blog/test-driven-development">How AI Will Bring TDD Back</a></li>
+              <li><a href="https://plausiblefutures.substack.com/p/vibe-coding-in-2025-a-technical-guide">Vibe Coding 2025 Guide</a></li>
             </ul>
           </section>
         </section>
@@ -573,26 +628,32 @@ Do not modify the tests."
           <div class="part-header">
             <h2>Part 2</h2>
             <h1>Claude API Mastery</h1>
-            <p>Building powerful applications with the Messages API</p>
+            <p class="why-statement">The building blocks of AI-powered applications</p>
           </div>
         </section>
 
         <!-- SECTION 2: PROMPT ENGINEERING DEEP DIVE -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY slide first (Sinek) -->
           <section>
-            <h2>2. Prompt Engineering Deep Dive</h2>
-            <p>XML structure, system prompts, chain-of-thought, few-shot</p>
+            <p class="big-idea">The prompt is the product.</p>
+            <p class="fragment why-statement">Everything else is just plumbing.</p>
           </section>
 
           <section>
-            <h3>Why XML Works for Claude</h3>
-            <ul>
-              <li>Claude was trained on vast amounts of XML/HTML</li>
-              <li>Clear semantic boundaries reduce ambiguity</li>
-              <li>Nesting expresses hierarchy naturally</li>
-              <li>Easy to parse in responses</li>
-            </ul>
+            <h2>2. Prompt Engineering Deep Dive</h2>
+            <p>The art of speaking Claude's language</p>
+          </section>
+
+          <!-- XML - One insight (Godin) -->
+          <section>
+            <p class="big-idea">Claude loves XML.</p>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Trained on vast amounts of it.<br/>Clear boundaries. Natural hierarchy.</p>
+          </section>
+
+          <section>
+            <h3>XML in Action</h3>
             <pre><code class="language-xml">&lt;context&gt;
   &lt;user_info&gt;Senior developer, 10 years experience&lt;/user_info&gt;
   &lt;codebase&gt;Python FastAPI backend&lt;/codebase&gt;
@@ -704,9 +765,21 @@ if "VALID" in validation.content[0].text:
         <!-- SECTION 3: STRUCTURED OUTPUTS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">LLMs speak prose.<br/>Your app speaks JSON.</p>
+            <p class="fragment why-statement">Bridge the gap with structured outputs.</p>
+          </section>
+
           <section>
             <h2>3. Structured Outputs</h2>
-            <p>JSON mode, XML parsing, prefilling, validation</p>
+            <p>Making AI responses machine-readable</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Prefilling is a cheat code.</p>
+            <p class="fragment" style="color: #868e96;">Start Claude's response with <code>{</code><br/>and it will always complete valid JSON.</p>
           </section>
 
           <section>
@@ -822,9 +895,21 @@ fixed_code = extract_xml_tag(response.content[0].text, "fixed_code")</code></pre
         <!-- SECTION 4: EXTENDED THINKING -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Some problems<br/>require silence first.</p>
+            <p class="fragment why-statement">Extended thinking lets Claude pause, reason, then respond.</p>
+          </section>
+
           <section>
             <h2>4. Extended Thinking & Reasoning</h2>
-            <p>Deep reasoning for complex problems</p>
+            <p>When quick answers aren't good enough</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="single-stat">10,000</p>
+            <p style="color: #868e96;">tokens of reasoning budget<br/>before a single output token</p>
           </section>
 
           <section>
@@ -931,9 +1016,21 @@ response = client.messages.create(
         <!-- SECTION 5: CONTEXT WINDOW MASTERY -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">200K tokens.</p>
+            <p class="fragment">That's not a feature.<br/>That's a <span style="color: #ffd43b;">superpower</span>.</p>
+          </section>
+
           <section>
             <h2>5. Context Window Mastery</h2>
-            <p>Token economics, summarization, prompt caching</p>
+            <p>Turn tokens into leverage</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Prompt caching = 90% cost savings.</p>
+            <p class="fragment why-statement">Same context, cached prefix, fraction of the price.</p>
           </section>
 
           <section>
@@ -1119,14 +1216,24 @@ print(f"Cache creation tokens: {response.usage.cache_creation_input_tokens}")
         <!-- SECTION 6: TOOL USE & FUNCTION CALLING -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude can think.<br/>Tools let it <em>act</em>.</p>
+          </section>
+
           <section>
             <h2>6. Tool Use & Function Calling</h2>
-            <p>Schema design, parallel calls, error handling</p>
+            <p>From chatbot to autonomous agent</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Tool descriptions are prompts.</p>
+            <p class="fragment why-statement">Write them like instructions, not documentation.</p>
           </section>
 
           <section>
             <h3>Tool Schema Design</h3>
-            <p>Descriptions guide Claude's behavior more than you think</p>
             <pre><code class="language-python">tools = [{
     "name": "search_database",
     "description": """Search the product database. Use this when the user asks
@@ -1287,9 +1394,20 @@ async def execute_tools_parallel(tool_blocks):
         <!-- SECTION 7: AGENTIC WORKFLOWS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">One call is a query.<br/>A loop is an agent.</p>
+          </section>
+
           <section>
             <h2>7. Agentic Workflows</h2>
-            <p>Loop patterns, state management, stop conditions</p>
+            <p>Think → Act → Observe → Repeat</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Agents aren't magic.</p>
+            <p class="fragment why-statement">They're just while loops with LLM calls.</p>
           </section>
 
           <section>
@@ -1455,9 +1573,20 @@ async def execute_tools_parallel(tool_blocks):
         <!-- SECTION 8: MULTIMODAL -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Words have limits.<br/>Images don't.</p>
+          </section>
+
           <section>
             <h2>8. Multimodal Capabilities</h2>
-            <p>Vision, PDFs, screenshots</p>
+            <p>See what users see, debug what they debug</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">"Just screenshot it."</p>
+            <p class="fragment why-statement">The best bug report is a picture.</p>
           </section>
 
           <section>
@@ -1600,9 +1729,15 @@ def optimize_image(path: str, max_size: int = 1568) -> bytes:
         <!-- SECTION 9: API ADVANCED FEATURES -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">50% cost savings.<br/>100,000 requests at once.</p>
+            <p class="fragment why-statement">Batch API changes the economics.</p>
+          </section>
+
           <section>
             <h2>9. API Advanced Features</h2>
-            <p>Batching, streaming, model selection</p>
+            <p>Scale without breaking the bank</p>
           </section>
 
           <section>
@@ -1758,9 +1893,20 @@ async function streamResponse(prompt: string) {
         <!-- SECTION 10: SECURITY PATTERNS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">LLMs trust input.<br/>Users can't always be trusted.</p>
+          </section>
+
           <section>
             <h2>10. Advanced Patterns & Security</h2>
-            <p>Prompt injection, hallucination mitigation, cost control</p>
+            <p>Build AI that's safe to deploy</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Defense in depth.</p>
+            <p class="fragment why-statement">Sanitize input. Separate privileges. Verify output.</p>
           </section>
 
           <section>
@@ -1920,16 +2066,27 @@ class RobustClient:
           <div class="part-header">
             <h2>Part 3</h2>
             <h1>Claude.ai Web Interface</h1>
-            <p>Projects, Artifacts, Styles, and Teams</p>
+            <p class="why-statement">Where ideas meet interaction</p>
           </div>
         </section>
 
         <!-- SECTION 11: CLAUDE.AI WEB INTERFACE -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Browser open?<br/>Claude ready.</p>
+          </section>
+
           <section>
             <h2>11. Claude.ai Web Interface</h2>
-            <p>Projects, artifacts, styles, and team collaboration</p>
+            <p>When you need Claude without the CLI</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Research in Claude.ai.<br/>Build in Claude Code.</p>
+            <p class="fragment why-statement">Different tools. Different jobs.</p>
           </section>
 
           <section>
@@ -2353,16 +2510,21 @@ state management, and API integration."</code></pre>
           <div class="part-header">
             <h2>Part 4</h2>
             <h1>Claude Code Essentials</h1>
-            <p>CLAUDE.md, Commands, Permissions, MCP</p>
+            <p class="why-statement">Configure once, code forever</p>
           </div>
         </section>
 
         <!-- SECTION 12: CLAUDE.md MASTERY -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude forgets everything.<br/>CLAUDE.md remembers.</p>
+          </section>
+
           <section>
             <h2>12. CLAUDE.md Mastery</h2>
-            <p>Project context, conventions, and team knowledge</p>
+            <p>Your project's permanent memory</p>
           </section>
 
           <section>
@@ -2938,9 +3100,14 @@ the CLAUDE.md files from the current directory."
         <!-- SECTION 13: CLAUDE CODE - SLASH COMMANDS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">/commands<br/>speak louder than prompts.</p>
+          </section>
+
           <section>
             <h2>13. Claude Code - Slash Commands</h2>
-            <p>Built-in commands, custom commands, CLAUDE.md</p>
+            <p>Your shortcuts to power features</p>
           </section>
 
           <section>
@@ -3085,12 +3252,134 @@ Summarize findings by severity (CRITICAL/HIGH/MEDIUM/LOW).</code></pre>
         </section>
 
         <!-- ============================================ -->
+        <!-- SECTION 13.5: MEMORY & AUTO-COMPACT -->
+        <!-- ============================================ -->
+        <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Context is finite.<br/>Memory is not.</p>
+          </section>
+
+          <section>
+            <h2>Memory & Auto-Compact</h2>
+            <p>How Claude Code manages long sessions</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">200K tokens is a lot.<br/>Until it isn't.</p>
+            <p class="fragment why-statement">Long sessions fill up. Auto-compact saves you.</p>
+          </section>
+
+          <section>
+            <h3>How Context Works</h3>
+            <pre><code class="language-text">┌─────────────────────────────────────────────────────┐
+│                 CONTEXT WINDOW (200K)                │
+├─────────────────────────────────────────────────────┤
+│ ┌─────────────┐ ┌──────────────┐ ┌────────────────┐ │
+│ │ System      │ │ CLAUDE.md    │ │ Conversation   │ │
+│ │ Prompt      │ │ (auto-loaded)│ │ History        │ │
+│ │ (~5K)       │ │ (~1-10K)     │ │ (growing...)   │ │
+│ └─────────────┘ └──────────────┘ └────────────────┘ │
+├─────────────────────────────────────────────────────┤
+│ File reads, code snippets, tool outputs...          │
+│ All count against your 200K limit!                  │
+└─────────────────────────────────────────────────────┘</code></pre>
+            <p class="tip">Use <code>/cost</code> to see current token usage</p>
+          </section>
+
+          <section>
+            <h3>Auto-Compact: The Safety Net</h3>
+            <p>When context approaches limits, Claude Code automatically:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.8em; text-align: left;">
+              <div>
+                <p style="color: #51cf66;"><strong>✓ Preserves</strong></p>
+                <ul style="font-size: 0.9em;">
+                  <li>Key decisions made</li>
+                  <li>Files modified</li>
+                  <li>Current task state</li>
+                  <li>Important context</li>
+                </ul>
+              </div>
+              <div>
+                <p style="color: #ff6b6b;"><strong>✗ Discards</strong></p>
+                <ul style="font-size: 0.9em;">
+                  <li>Verbose tool outputs</li>
+                  <li>Raw file contents</li>
+                  <li>Redundant info</li>
+                  <li>Old conversation turns</li>
+                </ul>
+              </div>
+            </div>
+            <p class="warning" style="margin-top: 1em;">Auto-compact is lossy. Critical details can be lost.</p>
+          </section>
+
+          <section>
+            <h3>/compact - Manual Control</h3>
+            <pre><code class="language-bash"># Trigger manual compaction
+/compact
+
+# What happens:
+# 1. Claude summarizes current conversation
+# 2. Preserves key facts in compressed form
+# 3. Clears verbose history
+# 4. Continues with fresh context headroom
+
+# Pro tip: Run /compact BEFORE starting new major task
+# Ensures maximum context available for complex work</code></pre>
+          </section>
+
+          <section>
+            <h3>Best Practices for Long Sessions</h3>
+            <div style="font-size: 0.8em;">
+              <p class="punch-line">1. Chunk your work</p>
+              <p style="color: #868e96; margin-bottom: 1em;">Complete one task fully before starting another</p>
+
+              <p class="punch-line">2. /compact between phases</p>
+              <p style="color: #868e96; margin-bottom: 1em;">Clear context after major milestones</p>
+
+              <p class="punch-line">3. Use CLAUDE.md for persistence</p>
+              <p style="color: #868e96; margin-bottom: 1em;">Critical info survives any compaction</p>
+
+              <p class="punch-line">4. Be specific, not verbose</p>
+              <p style="color: #868e96;">"Fix the login bug" not "Here's all the context again..."</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Context Budget Mental Model</h3>
+            <pre><code class="language-text">SESSION START
+├── System (~5K) ───────────────────────────▶ Fixed
+├── CLAUDE.md (~3K) ────────────────────────▶ Fixed
+├── Task 1: Implement feature (~20K) ───────▶ Done
+│   └── [/compact] ─────────────────────────▶ Summary (~2K)
+├── Task 2: Fix bugs (~15K) ────────────────▶ Done
+│   └── [/compact] ─────────────────────────▶ Summary (~1K)
+├── Task 3: Write tests (~25K) ─────────────▶ Active
+│
+└── Remaining headroom: ~150K available!
+
+WITHOUT /compact: Would be at ~68K already
+WITH /compact: Only ~11K of context used</code></pre>
+          </section>
+
+          <section>
+            <p class="big-idea">Long session?<br/>/compact is your friend.</p>
+          </section>
+        </section>
+
+        <!-- ============================================ -->
         <!-- SECTION 14: PERMISSIONS & SAFETY -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">With great power<br/>comes great <span style="color: #ff6b6b;">rm -rf</span>.</p>
+          </section>
+
           <section>
             <h2>14. Permissions & Safety</h2>
-            <p>When to trust automation, when to require approval</p>
+            <p>Trust but verify (or don't trust at all)</p>
           </section>
 
           <section>
@@ -3365,9 +3654,20 @@ docker run --network none --read-only ...
         <!-- SECTION 15: MCP SERVERS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude is smart.<br/>MCP makes it connected.</p>
+          </section>
+
           <section>
             <h2>15. MCP Servers</h2>
-            <p>Model Context Protocol - extending Claude's capabilities</p>
+            <p>Plug Claude into everything</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">One protocol.<br/>Infinite integrations.</p>
+            <p class="fragment why-statement">MCP is the USB of AI tools.</p>
           </section>
 
           <section>
@@ -3505,16 +3805,21 @@ async def get_feature_flags() -> Resource:
           <div class="part-header">
             <h2>Part 5</h2>
             <h1>Claude Code Advanced</h1>
-            <p>MCP Quality Tools, Agents, Skills, Plugins</p>
+            <p class="why-statement">Extend, customize, automate</p>
           </div>
         </section>
 
         <!-- SECTION 16: MCP TOOLS FOR QUALITY -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude can browse.<br/>Claude can query.<br/>Claude can test.</p>
+          </section>
+
           <section>
             <h2>16. MCP Tools for Quality</h2>
-            <p>Playwright, databases, GitHub, filesystem</p>
+            <p>Connect to real systems, verify real results</p>
           </section>
 
           <section>
@@ -3663,9 +3968,14 @@ Generate release report with go/no-go recommendation."</code></pre>
         <!-- SECTION 17: INTEGRATED WORKFLOW -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Ticket → Code → PR.<br/>One conversation.</p>
+          </section>
+
           <section>
             <h2>17. Integrated Workflow</h2>
-            <p>Jira MCP + GitHub CLI + Local Codebase</p>
+            <p>Jira + GitHub + Code = Seamless</p>
           </section>
 
           <section>
@@ -4144,9 +4454,20 @@ Update Jira with:
         <!-- SECTION 18: AGENTS & SKILLS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">One Claude is good.<br/>Many agents are better.</p>
+          </section>
+
           <section>
             <h2>18. Claude Code - Agents & Skills</h2>
-            <p>Subagents, custom agents, skills, hooks</p>
+            <p>Delegate, specialize, scale</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Skills are muscle memory.</p>
+            <p class="fragment why-statement">Complex workflows, one slash command.</p>
           </section>
 
           <section>
@@ -4280,9 +4601,14 @@ Follow our existing patterns in /src/api/ for consistency.</code></pre>
         <!-- SECTION 19: DEVELOPMENT PLUGINS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude Code is powerful.<br/>Plugins make it yours.</p>
+          </section>
+
           <section>
             <h2>19. Development Plugins</h2>
-            <p>Essential plugins to supercharge your workflow</p>
+            <p>Customize your AI workflow</p>
           </section>
 
           <section>
@@ -4530,9 +4856,14 @@ claude plugins update</code></pre>
         <!-- SECTION 20: CUSTOM PLUGIN DEVELOPMENT -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Build once.<br/>Use forever.</p>
+          </section>
+
           <section>
             <h2>20. Custom Plugin Development</h2>
-            <p>Build your own plugins (with a special guest)</p>
+            <p>Your workflows, packaged and shareable</p>
           </section>
 
           <section>
@@ -4831,9 +5162,14 @@ claude plugins add @myorg/my-awesome-plugin</code></pre>
         <!-- SECTION 21: PLUGINS MARKETPLACE -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Why build what<br/>others already built?</p>
+          </section>
+
           <section>
             <h2>21. Plugins Marketplace</h2>
-            <p>Discover and share Claude Code extensions</p>
+            <p>The app store for Claude Code</p>
           </section>
 
           <section>
@@ -5118,16 +5454,27 @@ claude plugins search "testing" \
           <div class="part-header">
             <h2>Part 6</h2>
             <h1>Quality Guardrails</h1>
-            <p>Testing and Build Checks as Safety Nets</p>
+            <p class="why-statement">Let the machines catch the mistakes</p>
           </div>
         </section>
 
         <!-- SECTION 22: TESTING AS GUARDRAILS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Claude writes code fast.<br/>Tests verify it works.</p>
+          </section>
+
           <section>
             <h2>22. Testing as Guardrails</h2>
-            <p>TDD, unit tests, integration tests, E2E</p>
+            <p>Trust but verify. Always verify.</p>
+          </section>
+
+          <!-- Key insight (Godin) -->
+          <section>
+            <p class="big-idea">Tests aren't QA.<br/>Tests are specs.</p>
+            <p class="fragment why-statement">Write the spec. Claude writes the code.</p>
           </section>
 
           <section>
@@ -5287,9 +5634,15 @@ If anything fails, stop and debug."</code></pre>
         <!-- SECTION 23: BUILD & TYPE CHECKS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">The compiler never sleeps.</p>
+            <p class="fragment why-statement">Let it guard your code 24/7.</p>
+          </section>
+
           <section>
             <h2>23. Build & Type Checks as Guardrails</h2>
-            <p>Using the compiler as your validation layer</p>
+            <p>TypeScript as your automated code reviewer</p>
           </section>
 
           <section>
@@ -5458,16 +5811,21 @@ Generate a report showing:
           <div class="part-header">
             <h2>Part 7</h2>
             <h1>Practical Workflows</h1>
-            <p>Real-World Use Cases and Architectures</p>
+            <p class="why-statement">Where theory meets production</p>
           </div>
         </section>
 
         <!-- SECTION 24: REAL-WORLD ARCHITECTURES -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Demos are easy.<br/>Production is hard.</p>
+          </section>
+
           <section>
             <h2>24. Real-World Architectures</h2>
-            <p>Production patterns and pipelines</p>
+            <p>Patterns that survive the real world</p>
           </section>
 
           <section>
@@ -5652,9 +6010,14 @@ Generate a report showing:
         <!-- SECTION 25: PRODUCT MANAGEMENT USE CASES -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">PMs think in problems.<br/>Claude turns them into specs.</p>
+          </section>
+
           <section>
             <h2>25. Product Management with Claude</h2>
-            <p>PRDs, user stories, competitive analysis, roadmaps</p>
+            <p>From ideas to actionable requirements</p>
           </section>
 
           <section>
@@ -5763,9 +6126,14 @@ Tone: Professional but not corporate-speak</code></pre>
         <!-- SECTION 26: ENGINEERING MANAGEMENT -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Managing is context switching.<br/>Claude is always prepared.</p>
+          </section>
+
           <section>
             <h2>26. Engineering Management with Claude</h2>
-            <p>1:1s, reviews, planning, documentation</p>
+            <p>Amplify your leadership, not replace it</p>
           </section>
 
           <section>
@@ -5905,9 +6273,14 @@ Analyze the codebase and generate:
         <!-- SECTION 27: TYPESCRIPT WORKFLOWS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">TypeScript + Claude<br/>= Type safety at speed.</p>
+          </section>
+
           <section>
             <h2>27. TypeScript Developer Workflows</h2>
-            <p>Types, Zod schemas, refactoring, API clients</p>
+            <p>Let Claude handle the boilerplate</p>
           </section>
 
           <section>
@@ -6063,9 +6436,14 @@ type DeepPartial&lt;T&gt; = T extends Branded&lt;infer U, infer B&gt;
         <!-- SECTION 28: DATA SCRAPING & VALIDATION -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Bad data = bad models.<br/>Claude validates as you go.</p>
+          </section>
+
           <section>
             <h2>28. Iterative Data Scraping & Validation</h2>
-            <p>Building datasets with Claude-in-the-loop</p>
+            <p>Quality data at scale</p>
           </section>
 
           <section>
@@ -6251,9 +6629,14 @@ async function updateDataset() {
         <!-- SECTION 29: DOCUMENTATION ENGINEERING -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Docs from code.<br/>Always accurate. Always current.</p>
+          </section>
+
           <section>
             <h2>29. Documentation Engineering</h2>
-            <p>Consistent, comprehensive, always up-to-date docs</p>
+            <p>Documentation that writes itself</p>
           </section>
 
           <section>
@@ -6423,9 +6806,14 @@ Include release date as today.</code></pre>
         <!-- SECTION 30: FRONTEND DESIGN -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Describe the UI.<br/>Claude codes it.</p>
+          </section>
+
           <section>
             <h2>30. Frontend Design with Claude</h2>
-            <p>Components, layouts, responsive design, accessibility</p>
+            <p>From wireframe to component</p>
           </section>
 
           <section>
@@ -6578,9 +6966,14 @@ Include live code examples."</code></pre>
         <!-- SECTION 31: MERMAID DIAGRAMS -->
         <!-- ============================================ -->
         <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Pictures explain<br/>what words can't.</p>
+          </section>
+
           <section>
             <h2>31. Mermaid Diagrams</h2>
-            <p>Generate architecture diagrams, flowcharts, and sequences</p>
+            <p>Architecture as code</p>
           </section>
 
           <section>
@@ -6883,9 +7276,37 @@ Keep existing style and formatting consistent."</code></pre>
             </ul>
           </section>
 
+          <!-- CLOSING SEQUENCE -->
           <section>
-            <h1>Questions?</h1>
-            <p>Advanced Claude Best Practices</p>
+            <p class="big-idea">Remember:</p>
+          </section>
+
+          <section>
+            <p class="big-idea">Claude is a tool.<br/>You are the craftsman.</p>
+          </section>
+
+          <section>
+            <div style="font-size: 0.9em; text-align: left; max-width: 700px; margin: 0 auto;">
+              <p class="punch-line fragment">Start with WHY (tests, specs, goals)</p>
+              <p class="punch-line fragment">Verify everything (build, types, tests)</p>
+              <p class="punch-line fragment">Orchestrate, don't just prompt</p>
+              <p class="punch-line fragment">Context is your superpower</p>
+              <p class="punch-line fragment">Automate the boring parts</p>
+            </div>
+          </section>
+
+          <section>
+            <p class="single-stat">10x</p>
+            <p style="color: #868e96;">output is possible<br/><em>when you work with AI, not against it</em></p>
+          </section>
+
+          <section data-background-gradient="linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+            <h1 style="color: white;">Questions?</h1>
+            <p style="color: rgba(255,255,255,0.8);">Claude Best Practices</p>
+            <p style="margin-top: 2em; font-size: 0.6em; color: rgba(255,255,255,0.6);">
+              Slides powered by Reveal.js<br/>
+              Content refined with Claude
+            </p>
           </section>
         </section>
 
