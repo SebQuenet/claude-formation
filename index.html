@@ -159,7 +159,7 @@
               <p><strong>Part 4:</strong> Claude Code Foundations <span style="color: #888;">(12-21)</span></p>
               <p><strong>Part 5:</strong> Claude Code Advanced <span style="color: #888;">(22-31)</span></p>
               <p><strong>Part 6:</strong> Quality & Operations <span style="color: #888;">(32-35)</span></p>
-              <p><strong>Part 7:</strong> Practical Workflows <span style="color: #888;">(36-48)</span></p>
+              <p><strong>Part 7:</strong> Practical Workflows <span style="color: #888;">(36-49)</span></p>
             </div>
           </section>
 
@@ -270,6 +270,7 @@
                 <li><strong>Database Operations</strong></li>
                 <li><strong>Remote Development</strong></li>
                 <li><strong>Multilingual Capabilities</strong></li>
+                <li><strong>Human Collaboration</strong></li>
                 <li><strong>Claude Code vs Competitors</strong></li>
               </ol>
             </div>
@@ -10294,7 +10295,292 @@ de gérer l'auth manuellement. Peux-tu adapter?"
         </section>
 
         <!-- ============================================ -->
-        <!-- SECTION 48: CLAUDE CODE VS COMPETITORS -->
+        <!-- SECTION 48: HUMAN COLLABORATION -->
+        <!-- ============================================ -->
+        <section>
+          <!-- WHY opener (Sinek) -->
+          <section>
+            <p class="big-idea">Pair programming is dead.<br/>Long live pair programming.</p>
+          </section>
+
+          <section>
+            <h2>48. Human Collaboration</h2>
+            <p>When AI joins the team</p>
+          </section>
+
+          <section>
+            <h3>The Old Way: Human Pairs</h3>
+            <div style="font-size: 0.8em;">
+              <p><strong>Traditional pair programming:</strong></p>
+              <ul>
+                <li>One driver, one navigator</li>
+                <li>Real-time code review</li>
+                <li>Knowledge transfer by osmosis</li>
+                <li>Expensive: 2 devs = 1 output</li>
+                <li>Scheduling nightmare</li>
+              </ul>
+            </div>
+            <p class="fragment stat-label">50% of companies abandoned it due to cost</p>
+          </section>
+
+          <section>
+            <p class="big-idea">What if your pair<br/>was always available?</p>
+            <p class="fragment why-statement">Never tired. Never judgmental. Infinitely patient.</p>
+          </section>
+
+          <section>
+            <h3>The New Paradigm: Human + AI</h3>
+            <pre><code class="language-text">Before (2 humans):
+├── Developer A (driver)
+├── Developer B (navigator)
+└── Output: 1x with better quality
+
+Now (human + Claude):
+├── Developer (driver + decision maker)
+├── Claude (navigator + implementer + reviewer)
+└── Output: 3-5x with comparable quality
+
+The math changed.</code></pre>
+          </section>
+
+          <section>
+            <h3>Claude as Your Pair</h3>
+            <pre><code class="language-bash"># The conversation IS the pair programming
+"I'm thinking about using a factory pattern here,
+but I'm worried about complexity. What do you think?"
+
+# Claude responds with:
+# - Analysis of your context
+# - Trade-offs of factory vs alternatives
+# - Recommendation with reasoning
+# - Code if you want to proceed
+
+# You stay in control. Claude amplifies.</code></pre>
+            <p class="tip">Think out loud. Claude listens.</p>
+          </section>
+
+          <section>
+            <h3>Team Patterns: Solo + AI</h3>
+            <pre><code class="language-text">Pattern 1: Individual Amplification
+
+Developer ←→ Claude (their session)
+    ↓
+Code Review (human)
+    ↓
+Merge
+
+Benefits:
+✓ Each dev moves at their own pace
+✓ No scheduling coordination
+✓ Async-friendly for remote teams
+✓ Human review catches AI blindspots</code></pre>
+          </section>
+
+          <section>
+            <h3>Team Patterns: Mob + AI</h3>
+            <pre><code class="language-text">Pattern 2: AI-Augmented Mob Programming
+
+┌─────────────────────────────────────┐
+│  Screen Share (1 driver)            │
+│  ┌─────────┐                        │
+│  │ Claude  │ ← Team discusses       │
+│  │ Session │   Claude implements    │
+│  └─────────┘                        │
+│  Observers: Learn patterns in       │
+│  real-time from AI interactions     │
+└─────────────────────────────────────┘
+
+Best for: Onboarding, architecture decisions,
+         complex refactoring</code></pre>
+          </section>
+
+          <section>
+            <h3>Team Patterns: Review Chain</h3>
+            <pre><code class="language-text">Pattern 3: AI-First Review
+
+Developer writes code with Claude
+         ↓
+Claude reviews (immediate feedback)
+         ↓
+Human reviews (final approval)
+         ↓
+Merge
+
+# Claude catches: Style, bugs, types, tests
+# Human catches: Architecture, business logic, team norms</code></pre>
+            <p class="fragment">AI handles the tedious. Humans handle the important.</p>
+          </section>
+
+          <section>
+            <h3>Code Review: Before vs After</h3>
+            <table style="font-size: 0.65em;">
+              <tr><th>Before (Human Only)</th><th>After (AI + Human)</th></tr>
+              <tr><td>Wait hours/days for review</td><td>Instant AI feedback</td></tr>
+              <tr><td>Reviewer fatigue on style</td><td>AI handles style/lint</td></tr>
+              <tr><td>Miss edge cases</td><td>AI suggests edge cases</td></tr>
+              <tr><td>Knowledge silos</td><td>AI explains any code</td></tr>
+              <tr><td>Awkward feedback</td><td>AI is never offended</td></tr>
+            </table>
+            <p class="fragment tip">Human reviewers focus on what matters</p>
+          </section>
+
+          <section>
+            <h3>Onboarding Revolution</h3>
+            <pre><code class="language-bash"># Day 1: New developer joins
+
+# Old way:
+# - Read outdated docs
+# - Shadow senior for weeks
+# - Ask "stupid questions" nervously
+# - Productive after 2-3 months
+
+# New way:
+claude
+"I'm new to this codebase. Walk me through the
+architecture, key patterns, and where to start
+for my first task: implementing user preferences"
+
+# Claude reads CLAUDE.md, explores code, explains
+# New dev productive in days, not months</code></pre>
+          </section>
+
+          <section>
+            <h3>Knowledge Sharing: Democratized</h3>
+            <pre><code class="language-markdown"># CLAUDE.md becomes your team's brain
+
+## Tribal Knowledge (now documented)
+- Why we use UUIDs instead of auto-increment
+- The legacy billing system quirks
+- How to debug the auth flow
+- Which tests are flaky and why
+
+## Team Conventions
+- PR template expectations
+- How we handle breaking changes
+- Release process checklist
+
+# Every team member + Claude knows this</code></pre>
+          </section>
+
+          <section>
+            <h3>When Humans Still Win</h3>
+            <div class="section-why">
+              <p><strong>Keep human collaboration for:</strong></p>
+              <ul style="font-size: 0.8em;">
+                <li><strong>Career growth</strong>: Mentorship, feedback, sponsorship</li>
+                <li><strong>Team bonding</strong>: Trust, culture, relationships</li>
+                <li><strong>Political navigation</strong>: Stakeholders, priorities</li>
+                <li><strong>Creative brainstorming</strong>: Wild ideas, inspiration</li>
+                <li><strong>Conflict resolution</strong>: Disagreements, trade-offs</li>
+                <li><strong>Celebrations</strong>: Ship it! 🎉</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>The Hybrid Meeting</h3>
+            <pre><code class="language-text"># Architecture Discussion (Hybrid)
+
+1. Humans discuss requirements (15 min)
+   - Business context
+   - Constraints
+   - Preferences
+
+2. Claude explores options (5 min)
+   "Given our discussion, show me 3 approaches
+   with trade-offs for each"
+
+3. Humans debate Claude's suggestions (20 min)
+   - Add context Claude missed
+   - Challenge assumptions
+
+4. Claude implements chosen approach (async)
+   - Humans review result</code></pre>
+          </section>
+
+          <section>
+            <h3>Remote Teams: AI as Equalizer</h3>
+            <pre><code class="language-text">The timezone problem:
+├── SF: Senior architect (sleeping)
+├── Paris: Mid-level dev (working)
+├── Singapore: Junior dev (working)
+
+Before: Junior waits 8h for senior's input
+After:  Junior asks Claude, makes progress,
+        senior reviews async
+
+AI fills the gaps between humans.</code></pre>
+            <p class="fragment punch-line">No one blocks. Everyone ships.</p>
+          </section>
+
+          <section>
+            <h3>Collaboration Anti-Patterns</h3>
+            <div style="font-size: 0.75em;">
+              <p><strong>❌ Don't:</strong></p>
+              <ul>
+                <li>Replace ALL human interaction with AI</li>
+                <li>Skip human code review entirely</li>
+                <li>Assume Claude knows your team norms</li>
+                <li>Isolate developers in AI bubbles</li>
+                <li>Forget to update CLAUDE.md with decisions</li>
+              </ul>
+              <p style="margin-top: 1em;"><strong>✓ Do:</strong></p>
+              <ul>
+                <li>Use AI to amplify, not replace, humans</li>
+                <li>Keep sync meetings for alignment</li>
+                <li>Share interesting Claude conversations</li>
+                <li>Document team decisions for Claude</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Team CLAUDE.md: Shared Context</h3>
+            <pre><code class="language-markdown"># Team Conventions (shared CLAUDE.md)
+
+## Code Review Expectations
+- All PRs need 1 human approval
+- Claude review is encouraged but not sufficient
+- Security-sensitive changes need 2 approvals
+
+## Communication
+- Async-first, meetings for decisions only
+- Share Claude conversations that taught you something
+- Tag @team-lead for architecture changes
+
+## AI Usage Policy
+- Claude can commit to feature branches
+- Human commits to main only
+- Always verify AI-generated tests run</code></pre>
+          </section>
+
+          <section>
+            <h3>Measuring Success</h3>
+            <pre><code class="language-text">Old metrics (human pairs):
+- Lines of code (gameable)
+- Velocity points (inconsistent)
+- Pair rotation frequency
+
+New metrics (AI-augmented):
+- Time to first commit (onboarding)
+- Review cycle time (hours, not days)
+- Knowledge sharing (CLAUDE.md contributions)
+- Human review quality (focus on architecture)
+- Team satisfaction (surveys)</code></pre>
+          </section>
+
+          <section>
+            <p class="big-idea">AI doesn't replace teamwork.<br/>It transforms it.</p>
+          </section>
+
+          <section>
+            <p class="single-stat">∞:1</p>
+            <p style="color: #868e96;">Every developer gets a dedicated pair.<br/><em>Finally, pair programming that scales.</em></p>
+          </section>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SECTION 49: CLAUDE CODE VS COMPETITORS -->
         <!-- ============================================ -->
         <section>
           <!-- WHY opener (Sinek) -->
@@ -10303,7 +10589,7 @@ de gérer l'auth manuellement. Peux-tu adapter?"
           </section>
 
           <section>
-            <h2>48. Claude Code vs Competitors</h2>
+            <h2>49. Claude Code vs Competitors</h2>
             <p>An honest comparison</p>
           </section>
 
