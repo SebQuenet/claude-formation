@@ -152,7 +152,7 @@
         <section>
           <section>
             <h2>Presentation Structure</h2>
-            <div style="font-size: 0.65em; text-align: left;">
+            <div style="font-size: 0.6em; text-align: left;">
               <p><strong>Part 1:</strong> The New Paradigm <span style="color: #888;">(1)</span></p>
               <p><strong>Part 2:</strong> Claude API Mastery <span style="color: #888;">(2-10)</span></p>
               <p><strong>Part 3:</strong> Claude.ai Web Interface <span style="color: #888;">(11)</span></p>
@@ -160,6 +160,8 @@
               <p><strong>Part 5:</strong> Claude Code Advanced <span style="color: #888;">(22-31)</span></p>
               <p><strong>Part 6:</strong> Quality & Operations <span style="color: #888;">(32-35)</span></p>
               <p><strong>Part 7:</strong> Practical Workflows <span style="color: #888;">(36-49)</span></p>
+              <p><strong>Part 8:</strong> Advanced Patterns <span style="color: #888;">(50)</span></p>
+              <p><strong>Part 9:</strong> BMAD Method <span style="color: #888;">(51)</span></p>
             </div>
           </section>
 
@@ -272,6 +274,28 @@
                 <li><strong>Multilingual Capabilities</strong></li>
                 <li><strong>Human Collaboration</strong></li>
                 <li><strong>Claude Code vs Competitors</strong></li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h2>Part 8: Advanced Patterns</h2>
+            <div style="font-size: 0.65em;">
+              <ol start="50">
+                <li><strong>Advanced Claude Code Patterns</strong> - 7 patterns that move the needle:
+                  <span style="font-size: 0.85em; color: #888;">Error Logging, /Commands as Apps, Hooks for Safety, Context Hygiene, Subagent Control, Lean Tool Stack, Reprompter</span>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h2>Part 9: BMAD Method</h2>
+            <div style="font-size: 0.65em;">
+              <ol start="51">
+                <li><strong>The BMAD Method</strong> - Open-source framework for structured AI development:
+                  <span style="font-size: 0.85em; color: #888;">4-Phase Structure, 3 Complexity Tracks, 12 Agent Roles, Trade-offs</span>
+                </li>
               </ol>
             </div>
           </section>
@@ -396,6 +420,113 @@ deduction support"</code></pre>
               AI helps least when you could type it faster."
             </div>
             <p class="fragment quote-author">— METR Research, 2025</p>
+          </section>
+
+          <!-- VERBOSITY SECTION - THE BIG QUESTION -->
+          <section>
+            <p class="big-idea">More Code = Over-Engineering?</p>
+            <p class="fragment why-statement">Or is it just... better architecture?</p>
+          </section>
+
+          <section>
+            <h3>The Uncomfortable Question</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment" style="font-size: 1.2em; color: #868e96;">When Claude generates more code than you expected...</p>
+              <p class="fragment" style="font-size: 1.4em; margin-top: 0.5em;"><span class="contrast-old">Is it verbose?</span></p>
+              <p class="fragment" style="font-size: 1.4em;"><span class="contrast-new">Or properly structured?</span></p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Signs of Good Architecture</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment">• Proper error handling at boundaries</p>
+              <p class="fragment">• Type annotations for public interfaces</p>
+              <p class="fragment">• Single Responsibility functions</p>
+              <p class="fragment">• Explicit over implicit patterns</p>
+              <p class="fragment">• Defensive validation at system edges</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">What seems verbose often prevents future bugs.</p>
+          </section>
+
+          <section>
+            <h3>Signs of Real Over-Engineering</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment">• Comments explaining <code>i++</code></p>
+              <p class="fragment">• Abstractions used exactly once</p>
+              <p class="fragment">• Error handling for impossible states</p>
+              <p class="fragment">• Factory patterns for single implementations</p>
+              <p class="fragment">• "Flexibility" nobody asked for</p>
+            </div>
+          </section>
+
+          <section>
+            <div class="quote-block">
+              "LLMs gravitate toward generic, safe solutions<br/>
+              rather than elegant, optimized approaches."
+            </div>
+            <p class="fragment quote-author">— Research Study, 2025</p>
+          </section>
+
+          <section>
+            <h3>The Real Problem: Reviews</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">3x</p>
+                <p>Lines to review</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">↑</p>
+                <p>Cognitive load</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">↑</p>
+                <p>Context usage</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Good or bad architecture — you still have to read it all.</p>
+          </section>
+
+          <section>
+            <h3>Context Window Impact</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment">Verbose code = faster context compaction</p>
+              <p class="fragment">More tokens = higher costs</p>
+              <p class="fragment">Larger diffs = harder integration</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Even "good" verbosity has real costs.</p>
+          </section>
+
+          <section>
+            <h3 style="color: #ffd43b;">Anthropic's Response</h3>
+            <p style="font-size: 1.3em; margin-top: 0.5em;">The <code>code-simplifier</code> plugin</p>
+            <div style="font-size: 0.85em; margin-top: 1em; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+              <p class="fragment">• Official Anthropic plugin (January 2026)</p>
+              <p class="fragment">• Simplifies code while preserving functionality</p>
+              <p class="fragment">• Runs autonomously after code generation</p>
+              <p class="fragment">• Targets recently modified code</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>code-simplifier Principles</h3>
+            <div style="font-size: 0.85em; margin-top: 1em;">
+              <p class="fragment"><strong>Preserve Functionality</strong> — Never change what code does</p>
+              <p class="fragment"><strong>Enhance Clarity</strong> — Reduce nesting and redundancy</p>
+              <p class="fragment"><strong>Maintain Balance</strong> — Don't over-simplify</p>
+              <p class="fragment"><strong>Explicit > Compact</strong> — Readable beats clever</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Install via: <code>/plugin</code> → Discover → code-simplifier</p>
+          </section>
+
+          <section>
+            <h3>Your Review Strategy</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment punch-line">Ask: "Is this structure or bloat?"</p>
+              <p class="fragment punch-line">Use code-simplifier for automatic cleanup</p>
+              <p class="fragment punch-line">Add to CLAUDE.md: "Minimal viable implementation"</p>
+              <p class="fragment punch-line">Ask: "What can I delete?"</p>
+            </div>
           </section>
 
           <!-- TDD SECTION - Dramatic tension -->
@@ -2229,7 +2360,7 @@ class RobustClient:
 
           <section>
             <h3>Claude.ai vs Claude Code</h3>
-            <table style="font-size: 0.65em;">
+            <table style="font-size: 0.6em;">
               <tr>
                 <th>Feature</th>
                 <th>Claude.ai (Web)</th>
@@ -2237,8 +2368,8 @@ class RobustClient:
               </tr>
               <tr>
                 <td>Best for</td>
-                <td>Research, writing, analysis, prototyping</td>
-                <td>Coding, file ops, git, full projects</td>
+                <td>Research, writing, data analysis, UI prototyping</td>
+                <td>Real codebases, multi-file refactoring, CI/CD</td>
               </tr>
               <tr>
                 <td>File access</td>
@@ -2252,7 +2383,7 @@ class RobustClient:
               </tr>
               <tr>
                 <td>Artifacts</td>
-                <td>Rich interactive previews</td>
+                <td>Rich interactive previews, visualizations</td>
                 <td>Plain text output</td>
               </tr>
               <tr>
@@ -2263,9 +2394,10 @@ class RobustClient:
               <tr>
                 <td>Teams</td>
                 <td>Shared workspaces, permissions</td>
-                <td>Individual usage</td>
+                <td>Individual (or via git)</td>
               </tr>
             </table>
+            <p class="tip" style="margin-top: 0.8em;">Hybrid: Research/prototype in Claude.ai → Implement in Claude Code</p>
           </section>
 
           <section>
@@ -2293,33 +2425,25 @@ Follow existing patterns in the uploaded files."
           </section>
 
           <section>
-            <h3>Project Instructions (System Prompt)</h3>
-            <pre><code class="language-markdown"># Effective Project Instructions Template
-
-## Role
+            <h3>Project Instructions Template</h3>
+            <pre><code class="language-markdown">## Role
 You are a [role] helping with [project type].
 
 ## Context
 - Project: [name and purpose]
 - Stack: [technologies]
-- Stage: [development phase]
 
 ## Constraints
 - Always use [language/framework]
 - Follow [coding standard]
-- Consider [specific requirements]
 
 ## Output Preferences
 - Code blocks with language tags
 - Explain reasoning before code
-- Include error handling
-- Add TypeScript types
 
 ## Knowledge
-Uploaded files contain:
-- [file1]: [what it contains]
-- [file2]: [what it contains]
-Reference these when relevant.</code></pre>
+Uploaded files contain: [describe each]</code></pre>
+            <p class="tip">Same structure as API system prompts (Section 2) but in Markdown for the UI</p>
           </section>
 
           <section>
@@ -2596,33 +2720,6 @@ Make it an artifact so I can preview and iterate."
 "Now let's plan how to implement this
 properly with drag-and-drop library,
 state management, and API integration."</code></pre>
-          </section>
-
-          <section>
-            <h3>When to Use Claude.ai vs Claude Code</h3>
-            <pre><code class="language-bash"># Use Claude.ai when:
-✓ Research and analysis tasks
-✓ Document writing and editing
-✓ Code review of uploaded files
-✓ Prototyping UI with artifacts
-✓ Data analysis with visualizations
-✓ Team collaboration needed
-✓ No local file access needed
-✓ Quick questions (no project context)
-
-# Use Claude Code when:
-✓ Working in a real codebase
-✓ Need filesystem access
-✓ Running tests/builds
-✓ Git operations
-✓ Multi-file refactoring
-✓ Installing dependencies
-✓ Full development workflow
-✓ CI/CD integration
-
-# Hybrid approach:
-# Research/prototype in Claude.ai
-# Implement in Claude Code</code></pre>
           </section>
 
           <section>
@@ -3987,27 +4084,64 @@ the CLAUDE.md files from the current directory."
 /config            # Open Claude Code configuration</code></pre>
           </section>
 
+          <!-- PLAN MODE - CRITICAL EMPHASIS -->
           <section>
-            <h3>Plan Mode: Think Before You Code</h3>
-            <pre><code class="language-bash"># Start plan mode for complex tasks
+            <p class="big-idea" style="color: #ffd43b;">/plan is (almost) mandatory</p>
+            <p class="fragment why-statement">The single most important command to master.</p>
+          </section>
+
+          <section>
+            <h3>Why Plan Mode Matters</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment">• Prevents Claude from diving into code immediately</p>
+              <p class="fragment">• Forces architecture thinking before implementation</p>
+              <p class="fragment">• You approve the approach before any file is touched</p>
+              <p class="fragment">• Catches scope creep and wrong directions early</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Without /plan, Claude guesses. With /plan, Claude asks.</p>
+          </section>
+
+          <section>
+            <h3>Plan Mode in Action</h3>
+            <pre><code class="language-bash"># Start plan mode for any non-trivial task
 /plan
 
 # Claude will:
-# 1. Create a plan file (.claude/plans/task-name.md)
-# 2. Outline the approach, files to modify, steps
-# 3. Wait for your approval
+# 1. Analyze the codebase first
+# 2. Create a plan file with approach, files, steps
+# 3. Wait for your explicit approval
 # 4. Execute only after you say "go"
 
-# Example plan file generated:
-# ## Implementation Plan
-# 1. Add UserService class in src/services/
-# 2. Update API routes in src/routes/users.ts
-# 3. Add database migration for user_preferences
-# 4. Write tests for new functionality
-#
-# **Estimated changes**: 4 files
-# **Risk**: Low - additive changes only</code></pre>
-            <p class="tip">Use /plan for any task touching 3+ files</p>
+# You can:
+# - Ask questions about the plan
+# - Request modifications
+# - Reject and ask for alternatives
+# - Approve specific parts only</code></pre>
+          </section>
+
+          <section>
+            <h3>When to Use /plan</h3>
+            <div style="display: flex; justify-content: space-around; font-size: 0.8em; margin-top: 1em;">
+              <div class="section-why">
+                <p style="color: #51cf66;">Always use /plan</p>
+                <ul style="margin: 0;">
+                  <li>New features</li>
+                  <li>Refactoring</li>
+                  <li>Bug fixes (non-trivial)</li>
+                  <li>Any task > 2 files</li>
+                  <li>Unfamiliar codebase</li>
+                </ul>
+              </div>
+              <div class="section-why">
+                <p style="color: #868e96;">Skip /plan only for</p>
+                <ul style="margin: 0;">
+                  <li>Typo fixes</li>
+                  <li>Single-line changes</li>
+                  <li>Adding a log statement</li>
+                  <li>Quick research questions</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section>
@@ -4415,72 +4549,21 @@ WITH /compact: Only ~11K of context used</code></pre>
             <h3>Claude Code Permission Modes</h3>
             <ul>
               <li><strong>Default Mode</strong>: Asks for confirmation before risky operations</li>
-              <li><strong>--dangerously-skip-permissions</strong>: Full autonomy, no prompts</li>
-              <li><strong>Allowlists</strong>: Fine-grained control per tool/path</li>
+              <li><strong style="color: #51cf66;">Allowlists</strong>: Fine-grained control per tool/path (recommended)</li>
+              <li><strong style="color: #868e96;">--dangerously-skip-permissions</strong>: Full autonomy (CI/CD only)</li>
             </ul>
             <pre><code class="language-bash"># Default: Interactive confirmation
 claude
 
-# Full autonomy (CI/CD, trusted automation)
-claude --dangerously-skip-permissions
+# Recommended: Allow specific tools only
+claude --allowedTools "Read,Glob,Grep,Edit"
 
-# Auto-accept specific tools only
-claude --allowedTools "Read,Glob,Grep"
-
-# Alias for common use
-alias claude-yolo="claude --dangerously-skip-permissions"</code></pre>
+# CI/CD only: Full autonomy (sandboxed environments)
+claude --dangerously-skip-permissions</code></pre>
           </section>
 
           <section>
-            <h3>When to Use --dangerously-skip-permissions</h3>
-            <pre><code class="language-bash"># ✅ APPROPRIATE USE CASES
-
-# CI/CD pipelines (no human to approve)
-- name: Claude Review
-  run: |
-    claude --dangerously-skip-permissions \
-      "Review the changes in this PR and post comments"
-
-# Automated scripts with bounded scope
-claude --dangerously-skip-permissions \
-  "Run tests and fix any lint errors" \
-  --allowedTools "Read,Edit,Bash"
-
-# Fresh/disposable environments (Docker, VMs)
-docker run -v $(pwd):/app claude-code \
-  --dangerously-skip-permissions "..."
-
-# Sandboxed environments
-# When running in a container with no network,
-# limited filesystem access</code></pre>
-          </section>
-
-          <section>
-            <h3>When NOT to Skip Permissions</h3>
-            <pre><code class="language-bash"># ❌ DANGEROUS - AVOID THESE
-
-# Production systems with secrets
-claude --dangerously-skip-permissions \
-  "Deploy to production"  # NO! Can leak/modify secrets
-
-# Unrestricted network access
-# Claude could make unwanted API calls, exfiltrate data
-
-# Shared development machines
-# Could affect other users' files
-
-# Learning/exploring unknown codebases
-# You want to see what Claude is doing
-
-# Tasks with irreversible consequences
-# Database migrations, file deletions, git force pushes
-
-# User-facing applications
-# Never trust untrusted input → Claude → auto-execute</code></pre>
-          </section>
-
-          <section>
-            <h3>Allowlists: The Middle Ground</h3>
+            <h3 style="color: #51cf66;">Allowlists: The Recommended Approach</h3>
             <pre><code class="language-bash"># Fine-grained permission control
 claude --allowedTools "Read,Glob,Grep,Edit"
 
@@ -4751,6 +4834,7 @@ docker run --network none --read-only ...
     }
   }
 }</code></pre>
+            <p class="tip">For Postgres MCP: add the database to your docker-compose.dev.yml for easy local setup</p>
           </section>
 
           <section>
@@ -4759,10 +4843,10 @@ docker run --network none --read-only ...
               <tr><th>Server</th><th>Purpose</th><th>Package</th></tr>
               <tr><td>PostgreSQL</td><td>Query databases</td><td>@modelcontextprotocol/server-postgres</td></tr>
               <tr><td>GitHub</td><td>Repos, PRs, issues</td><td>@modelcontextprotocol/server-github</td></tr>
-              <tr><td>Filesystem</td><td>File operations</td><td>@modelcontextprotocol/server-filesystem</td></tr>
               <tr><td>Puppeteer</td><td>Browser automation</td><td>@modelcontextprotocol/server-puppeteer</td></tr>
               <tr><td>Slack</td><td>Send messages</td><td>@modelcontextprotocol/server-slack</td></tr>
               <tr><td>Memory</td><td>Persistent memory</td><td>@modelcontextprotocol/server-memory</td></tr>
+              <tr><td>Context7</td><td>Live documentation</td><td>@anthropic/context7</td></tr>
             </table>
             <p><a href="https://github.com/modelcontextprotocol/servers">github.com/modelcontextprotocol/servers</a></p>
           </section>
@@ -4916,26 +5000,32 @@ async def get_feature_flags() -> Resource:
           </section>
 
           <section>
-            <h3>Web Search MCP</h3>
-            <pre><code class="language-json">// Enable web search capability
-{
-  "mcpServers": {
-    "web-search": {
-      "command": "npx",
-      "args": ["-y", "@anthropic/mcp-web-search"]
-    }
-  }
-}
-
-// Claude can now search the web:
-"What's the current status of the React 19 release?"
-"Find the latest security advisory for lodash"
-"Search for TypeScript 5.4 new features"
-
-// Returns:
-// - Search results with snippets
-// - Source URLs for citations
-// - Date of publication</code></pre>
+            <h3>Built-in Capabilities</h3>
+            <p style="font-size: 0.9em; margin-bottom: 1em;">These features work out of the box — no MCP needed:</p>
+            <table style="font-size: 0.7em;">
+              <tr><th>Capability</th><th>Status</th><th>Notes</th></tr>
+              <tr>
+                <td><strong>Web Search</strong></td>
+                <td style="color: #51cf66;">Built-in</td>
+                <td>Claude can search the web natively</td>
+              </tr>
+              <tr>
+                <td><strong>File System</strong></td>
+                <td style="color: #51cf66;">Built-in</td>
+                <td>Read/Write/Edit tools included</td>
+              </tr>
+              <tr>
+                <td><strong>Bash/Terminal</strong></td>
+                <td style="color: #51cf66;">Built-in</td>
+                <td>Execute commands directly</td>
+              </tr>
+              <tr>
+                <td><strong>Git Operations</strong></td>
+                <td style="color: #51cf66;">Built-in</td>
+                <td>Via Bash tool</td>
+              </tr>
+            </table>
+            <p class="tip" style="margin-top: 1em;">MCP servers extend beyond built-in capabilities (databases, APIs, etc.)</p>
           </section>
 
           <section>
@@ -5331,42 +5421,55 @@ code --install-extension anthropic.claude-code
           </section>
 
           <section>
+            <h3 style="color: #ffd43b;">The Best of Both Worlds</h3>
+            <p style="font-size: 1.2em; margin-top: 0.5em;">Claude Code VS Code Extension</p>
+            <div style="font-size: 0.85em; margin-top: 1em;">
+              <p class="fragment">• Full CLI power inside your editor</p>
+              <p class="fragment">• Terminal panel with Claude Code</p>
+              <p class="fragment">• All MCP servers and plugins work</p>
+              <p class="fragment">• Visual context + terminal efficiency</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Recommended setup for most developers.</p>
+          </section>
+
+          <section>
             <h3>Cursor vs Claude Code</h3>
-            <table style="font-size: 0.7em;">
+            <table style="font-size: 0.65em;">
               <tr>
                 <th></th>
                 <th>Claude Code CLI</th>
+                <th>VS Code Extension</th>
                 <th>Cursor</th>
               </tr>
               <tr>
-                <td>Model</td>
-                <td>Claude (any)</td>
-                <td>Multiple (incl Claude)</td>
-              </tr>
-              <tr>
                 <td>Interface</td>
-                <td>Terminal</td>
+                <td>Pure terminal</td>
+                <td style="color: #51cf66;">Terminal in IDE</td>
                 <td>VS Code fork</td>
               </tr>
               <tr>
                 <td>MCP Support</td>
                 <td style="color: #51cf66;">Full</td>
+                <td style="color: #51cf66;">Full</td>
                 <td>Limited</td>
+              </tr>
+              <tr>
+                <td>Plugins</td>
+                <td style="color: #51cf66;">Full</td>
+                <td style="color: #51cf66;">Full</td>
+                <td>Extensions only</td>
+              </tr>
+              <tr>
+                <td>Visual context</td>
+                <td>None</td>
+                <td style="color: #51cf66;">Full IDE</td>
+                <td style="color: #51cf66;">Full IDE</td>
               </tr>
               <tr>
                 <td>Automation</td>
                 <td style="color: #51cf66;">Headless mode</td>
+                <td style="color: #51cf66;">Headless mode</td>
                 <td>GUI only</td>
-              </tr>
-              <tr>
-                <td>Plugins</td>
-                <td style="color: #51cf66;">Full ecosystem</td>
-                <td>Extensions only</td>
-              </tr>
-              <tr>
-                <td>Price</td>
-                <td>API usage</td>
-                <td>Subscription + API</td>
               </tr>
             </table>
           </section>
@@ -7123,316 +7226,25 @@ If clean:
           </section>
 
           <section>
-            <h3>Serious: Publishing Your Plugin</h3>
-            <pre><code class="language-bash"># 1. Validate your plugin
-claude plugins validate ./my-plugin
+            <h3>Sharing Your Plugin</h3>
+            <pre><code class="language-bash"># 1. Test locally - add to your .claude/plugins/
+cp -r ./my-plugin ~/.claude/plugins/
 
-# 2. Test locally
-claude plugins link ./my-plugin
-claude /my-command  # Test it works
+# 2. Share via Git repository
+git init && git add . && git commit -m "Initial plugin"
+git remote add origin git@github.com:you/my-plugin.git
+git push -u origin main
 
-# 3. Publish to registry
-claude plugins publish ./my-plugin
+# 3. Others install via /plugin command
+# In Claude Code:
+/plugin
+# → "Add from URL"
+# → Enter: github.com/you/my-plugin
 
-# 4. Or publish to npm
-cd my-plugin
-npm publish --access public
-
-# 5. Users install via
-claude plugins add my-awesome-plugin
-# or
-claude plugins add @myorg/my-awesome-plugin</code></pre>
+# Or via official directory (submit PR to):
+# github.com/anthropics/claude-plugins-official</code></pre>
           </section>
         </section>
-
-        <!-- ============================================ -->
-        <!-- SECTION 31 (cont): PLUGINS MARKETPLACE -->
-        <!-- ============================================ -->
-        <section>
-          <!-- WHY opener (Sinek) -->
-          <section>
-            <p class="big-idea">Why build what<br/>others already built?</p>
-          </section>
-
-          <section>
-            <h2>Plugins Marketplace</h2>
-            <p>The app store for Claude Code</p>
-          </section>
-
-          <section>
-            <h3>Marketplace Overview</h3>
-            <ul>
-              <li><strong>Official Plugins</strong>: Built by Anthropic, guaranteed quality</li>
-              <li><strong>Verified Plugins</strong>: Community plugins, Anthropic reviewed</li>
-              <li><strong>Community Plugins</strong>: Open ecosystem, use with care</li>
-              <li><strong>Private Plugins</strong>: Your org's internal tools</li>
-            </ul>
-            <pre><code class="language-bash"># Browse marketplace
-claude plugins search "database"
-
-# Filter by category
-claude plugins search --category testing
-
-# Show plugin details
-claude plugins info @anthropic/plugin-git
-
-# Check ratings and downloads
-claude plugins stats @popular/plugin</code></pre>
-          </section>
-
-          <section>
-            <h3>Plugin Categories</h3>
-            <pre><code class="language-bash"># 🔧 Development Tools
-- Git workflows, testing, debugging, profiling
-
-# 🗄️ Database & Backend
-- ORM helpers, migration tools, query builders
-
-# 🎨 Frontend & Design
-- Component generators, style systems, a11y
-
-# 🔒 Security
-- Vulnerability scanning, secret detection, auth
-
-# 📊 Analytics & Monitoring
-- Performance, logging, error tracking
-
-# 🔄 CI/CD & DevOps
-- Deployment, Docker, Kubernetes, infrastructure
-
-# 📝 Documentation
-- README generators, API docs, diagrams
-
-# 🧪 Testing
-- Unit, integration, E2E, mocking, coverage
-
-# 🤝 Collaboration
-- Code review, pair programming, team workflows</code></pre>
-          </section>
-
-          <section>
-            <h3>Top Official Plugins</h3>
-            <pre><code class="language-bash"># @anthropic/claude-code-plugin-git ⭐⭐⭐⭐⭐
-# Smart git operations, commit messages, PR workflows
-claude plugins add @anthropic/claude-code-plugin-git
-
-# @anthropic/claude-code-plugin-test ⭐⭐⭐⭐⭐
-# Test generation, coverage analysis, TDD support
-claude plugins add @anthropic/claude-code-plugin-test
-
-# @anthropic/claude-code-plugin-docs ⭐⭐⭐⭐⭐
-# Documentation generation and maintenance
-claude plugins add @anthropic/claude-code-plugin-docs
-
-# @anthropic/claude-code-plugin-security ⭐⭐⭐⭐⭐
-# Security scanning and vulnerability detection
-claude plugins add @anthropic/claude-code-plugin-security
-
-# @anthropic/claude-code-plugin-refactor ⭐⭐⭐⭐
-# Safe codebase refactoring operations
-claude plugins add @anthropic/claude-code-plugin-refactor</code></pre>
-          </section>
-
-          <section>
-            <h3>Top Community Plugins</h3>
-            <pre><code class="language-bash"># @vercel/claude-plugin-nextjs ⭐⭐⭐⭐⭐ (15k downloads)
-# Next.js specific commands and optimizations
-- /nextjs page, /nextjs api, /nextjs optimize
-
-# @prisma/claude-plugin-prisma ⭐⭐⭐⭐⭐ (12k downloads)
-# Prisma schema management and queries
-- /prisma migrate, /prisma seed, /prisma studio
-
-# @stripe/claude-plugin-payments ⭐⭐⭐⭐ (8k downloads)
-# Payment integration helpers
-- /stripe webhook, /stripe checkout, /stripe test
-
-# @tailwindlabs/claude-plugin-tailwind ⭐⭐⭐⭐ (10k downloads)
-# Tailwind CSS assistance
-- /tw component, /tw responsive, /tw dark-mode
-
-# @supabase/claude-plugin-supabase ⭐⭐⭐⭐ (7k downloads)
-# Supabase integration
-- /supa auth, /supa realtime, /supa storage</code></pre>
-          </section>
-
-          <section>
-            <h3>Framework-Specific Plugins</h3>
-            <pre><code class="language-bash"># React Ecosystem
-@react/claude-plugin-react        # Core React helpers
-@redux/claude-plugin-redux        # State management
-@tanstack/claude-plugin-query     # React Query patterns
-
-# Vue Ecosystem
-@vue/claude-plugin-vue            # Vue 3 + Composition API
-@pinia/claude-plugin-pinia        # Pinia state management
-@nuxt/claude-plugin-nuxt          # Nuxt.js helpers
-
-# Backend Frameworks
-@nestjs/claude-plugin-nest        # NestJS modules, guards
-@express/claude-plugin-express    # Express middleware, routes
-@fastify/claude-plugin-fastify    # Fastify plugins, schemas
-
-# Mobile
-@expo/claude-plugin-expo          # Expo + React Native
-@capacitor/claude-plugin-cap      # Capacitor apps</code></pre>
-          </section>
-
-          <section>
-            <h3>Enterprise Plugins</h3>
-            <pre><code class="language-bash"># Internal plugin registry
-claude plugins config set registry https://plugins.company.com
-
-# Corporate plugins (examples)
-@company/plugin-internal-api     # Internal API integration
-@company/plugin-auth-sso         # SSO/SAML helpers
-@company/plugin-deploy           # Custom deployment pipeline
-@company/plugin-compliance       # Code compliance checks
-@company/plugin-logging          # Standard logging patterns
-
-# Install from private registry
-claude plugins add @company/plugin-internal-api
-
-# Scoped to organization
-claude plugins add @myorg/private-plugin --registry npm
-
-# From private git
-claude plugins add git@github.com:company/plugin.git</code></pre>
-          </section>
-
-          <section>
-            <h3>Plugin Bundles</h3>
-            <pre><code class="language-bash"># Install curated plugin collections
-
-# Full-Stack TypeScript Bundle
-claude plugins add @bundles/fullstack-ts
-# Includes: git, test, typescript, prisma, react, nextjs
-
-# DevOps Bundle
-claude plugins add @bundles/devops
-# Includes: docker, kubernetes, terraform, ci-cd
-
-# Security Bundle
-claude plugins add @bundles/security
-# Includes: scanning, secrets, audit, compliance
-
-# Startup Bundle (everything you need to ship fast)
-claude plugins add @bundles/startup
-# Includes: git, test, deploy, docs, monitoring
-
-# List bundle contents
-claude plugins info @bundles/fullstack-ts --show-contents</code></pre>
-          </section>
-
-          <section>
-            <h3>Plugin Management</h3>
-            <pre><code class="language-bash"># View installed plugins
-claude plugins list
-claude plugins list --outdated
-
-# Update plugins
-claude plugins update                    # Update all
-claude plugins update @anthropic/git     # Update specific
-
-# Plugin versions
-claude plugins add @org/plugin@1.2.3     # Specific version
-claude plugins add @org/plugin@^1.0.0    # Semver range
-claude plugins add @org/plugin@latest    # Latest
-
-# Lock versions (for teams)
-claude plugins lock                      # Generate plugins.lock
-claude plugins install                   # Install from lock
-
-# Disable without removing
-claude plugins disable @org/plugin
-claude plugins enable @org/plugin
-
-# Plugin health check
-claude plugins doctor</code></pre>
-          </section>
-
-          <section>
-            <h3>Plugin Security</h3>
-            <pre><code class="language-bash"># Before installing, check:
-claude plugins audit @unknown/plugin
-
-# Shows:
-# - Permissions required
-# - Network access
-# - File system access
-# - Commands it can run
-# - Security scan results
-
-# Restrict plugin permissions
-claude plugins add @org/plugin \
-  --deny-network \
-  --allow-paths "src/**" \
-  --deny-bash "rm*,curl*"
-
-# Organization-wide restrictions
-# .claude/plugin-policy.json
-{
-  "allowed": ["@anthropic/*", "@company/*"],
-  "denied": ["@untrusted/*"],
-  "requireVerified": true,
-  "maxPermissions": {
-    "network": false,
-    "bash": ["npm *", "git *"]
-  }
-}</code></pre>
-          </section>
-
-          <section>
-            <h3>Building for the Marketplace</h3>
-            <pre><code class="language-bash"># 1. Create plugin
-claude plugins create my-plugin
-cd my-plugin
-
-# 2. Develop and test
-claude plugins link .
-claude /my-command  # Test
-
-# 3. Add documentation
-# README.md - Installation, usage, examples
-# CHANGELOG.md - Version history
-# LICENSE - Open source license
-
-# 4. Validate
-claude plugins validate .
-
-# 5. Submit for verification (optional)
-claude plugins submit-verification .
-
-# 6. Publish
-claude plugins publish .
-
-# Marketplace listing includes:
-# - Description, screenshots, examples
-# - Install count, ratings, reviews
-# - Compatibility matrix
-# - Security audit status</code></pre>
-          </section>
-
-          <section>
-            <h3>Plugin Discovery Tips</h3>
-            <ul>
-              <li><strong>Check downloads</strong>: High downloads = battle-tested</li>
-              <li><strong>Read reviews</strong>: Real user experiences</li>
-              <li><strong>Verify badge</strong>: Anthropic reviewed for security</li>
-              <li><strong>Check updates</strong>: Active maintenance matters</li>
-              <li><strong>Read permissions</strong>: Understand what it can access</li>
-              <li><strong>Try before commit</strong>: Link locally first</li>
-            </ul>
-            <pre><code class="language-bash"># Smart discovery
-claude plugins search "testing" \
-  --min-downloads 1000 \
-  --verified-only \
-  --updated-within 90d \
-  --sort rating</code></pre>
-          </section>
-        </section>
-
-        <!-- ============================================ -->
 
         <!-- ============================================ -->
         <!-- PART 6: QUALITY & OPERATIONS -->
@@ -9740,7 +9552,7 @@ Keep existing style and formatting consistent."</code></pre>
               <tr><td>200k - 1M</td><td>~2000</td><td>Map-reduce approach</td></tr>
               <tr><td>&gt; 1M lines</td><td>~5000+</td><td>Index + targeted retrieval</td></tr>
             </table>
-            <p class="fragment tip">Claude's context window is large, but your codebase is larger</p>
+            <p class="fragment tip">See Section 5 for token economics, Section 20 for /compact</p>
           </section>
 
           <section>
@@ -9818,7 +9630,8 @@ project/
 │   └── api/
 │       ├── CLAUDE.md   # API conventions
 │       └── ...</code></pre>
-            <p class="tip">Claude loads CLAUDE.md from current directory + parents</p>
+            <p class="tip">Claude loads CLAUDE.md from current directory + parents.<br>
+              <span style="font-size: 0.85em;">→ See Section 17 for inheritance rules and conflict resolution.</span></p>
           </section>
 
           <section>
@@ -10766,6 +10579,460 @@ Weaknesses:
             <p class="fragment stat-label">Tools are means, not ends</p>
           </section>
         </section>
+
+        <!-- ============================================ -->
+        <!-- PART 8: ADVANCED PATTERNS -->
+        <!-- ============================================ -->
+        <section data-background-gradient="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)">
+          <div class="part-header">
+            <h2>Part 8</h2>
+            <h1>Advanced Patterns</h1>
+            <p class="why-statement">Patterns that actually move the needle</p>
+          </div>
+        </section>
+
+        <!-- SECTION 50: ADVANCED PATTERNS -->
+        <section>
+          <!-- HOOK -->
+          <section>
+            <p class="big-idea">Any issue in AI code<br/>is YOUR issue.</p>
+            <p class="fragment why-statement">The model is the constant.<br/>Your input is the variable.</p>
+          </section>
+
+          <section>
+            <h2>50. Advanced Claude Code Patterns</h2>
+            <p>7 patterns from 2000+ hours of building with LLMs</p>
+            <p class="fragment stat-label">Based on Andrej Karpathy's insight: "I've never felt this much behind as a programmer"</p>
+          </section>
+
+          <!-- PATTERN 1: ERROR LOGGING -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 1</p>
+            <p class="big-idea">Log Your Errors</p>
+            <p class="fragment why-statement">Tighten the learning loop.</p>
+          </section>
+
+          <section>
+            <h3>The Problem</h3>
+            <div style="font-size: 0.85em; margin-top: 1em;">
+              <p class="fragment">Agentic coding has the most convoluted input-output loop</p>
+              <p class="fragment" style="margin-top: 0.5em;">1. <strong>Output is qualitative</strong> - "Is this good?" not "Did it pass?"</p>
+              <p class="fragment">2. <strong>Middle is a black box</strong> - Can't trace causality</p>
+              <p class="fragment">3. <strong>Non-deterministic</strong> - Same input ≠ same output</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>The /log_error Workflow</h3>
+            <div style="font-size: 0.8em;">
+              <ol>
+                <li class="fragment">Something goes wrong (hallucination, wrong build, ignored instruction)</li>
+                <li class="fragment">Invoke <code>/log_error</code> - forks the conversation</li>
+                <li class="fragment">Claude interviews you with <strong>specific</strong> questions</li>
+                <li class="fragment">Captures: verbatim prompt, failure category, root cause</li>
+                <li class="fragment">Logs to queryable database</li>
+                <li class="fragment">Double-escape to rewind and continue</li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h3>What Gets Logged</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.75em; margin-top: 1em;">
+              <div class="section-why">
+                <p style="color: #ff6b6b;">Prompt Errors</p>
+                <p>Ambiguous, missing constraints, too verbose</p>
+              </div>
+              <div class="section-why">
+                <p style="color: #ffd43b;">Context Errors</p>
+                <p>Context rot, stale info, overflow</p>
+              </div>
+              <div class="section-why">
+                <p style="color: #748ffc;">Harness Errors</p>
+                <p>Wrong agent, no guardrails, bad sequencing</p>
+              </div>
+              <div class="section-why">
+                <p style="color: #51cf66;">Meta Errors</p>
+                <p>Didn't ask questions, rushed, assumed too much</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <p class="punch-line">Log successes too!</p>
+            <p class="fragment" style="margin-top: 1em; font-size: 0.9em;">Understanding WHY things work is just as valuable</p>
+          </section>
+
+          <!-- PATTERN 2: SLASH COMMANDS -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 2</p>
+            <p class="big-idea">/Commands as<br/>Lightweight Apps</p>
+          </section>
+
+          <section>
+            <h3>Why /Commands Over Skills?</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div style="text-align: center;">
+                <p class="contrast-old" style="font-size: 1.2em;">Skills</p>
+                <p style="font-size: 0.85em;">Non-deterministic launch<br/>May be ignored</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="contrast-new" style="font-size: 1.2em;">/Commands</p>
+                <p style="font-size: 0.85em;">Deterministic trigger<br/>Always executes</p>
+              </div>
+            </div>
+            <p class="fragment tip" style="margin-top: 1em;">Combine: /command triggers skill for knowledge</p>
+          </section>
+
+          <section>
+            <h3>/Commands Are...</h3>
+            <div style="font-size: 0.9em;">
+              <p class="fragment">✓ Easier to build than localhost apps</p>
+              <p class="fragment">✓ More dynamic (take arguments, alter mid-workflow)</p>
+              <p class="fragment">✓ Can launch parallel sub-agents</p>
+              <p class="fragment">✓ Access files, repos, browsers, GitHub</p>
+              <p class="fragment">✓ Your deterministic workflow launcher</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Real Example: /presentation-to-shorts</h3>
+            <pre style="font-size: 0.55em;"><code>Phase 1: Opus refactors + WhisperX transcribes (PARALLEL)
+Phase 2: Opus picks best 20-60s moments
+Phase 3: Four Opus agents build compositions (PARALLEL)
+Error Gate: Playwright validates all clips load
+Phase 4: Four Sonnet agents sync animations (PARALLEL)
+Phase 5: Sequential GPU rendering + captions</code></pre>
+            <p class="fragment" style="font-size: 0.8em; color: #868e96;">15+ LLM calls, model routing, runtime adaptation</p>
+          </section>
+
+          <!-- PATTERN 3: HOOKS -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 3</p>
+            <p class="big-idea">Hooks for<br/>Deterministic Safety</p>
+          </section>
+
+          <section>
+            <h3>The Flow State Setup</h3>
+            <pre><code class="language-bash"># The dangerous but powerful combo:
+dangerously-skip-permissions
++
+Hooks that prevent actual danger</code></pre>
+            <p class="fragment warning" style="margin-top: 1em;">Use at your own risk!</p>
+          </section>
+
+          <section>
+            <div class="quote-block">
+              "Knowing when to force guardrails and determinism<br/>is one of the top skills in building agentic harnesses."
+            </div>
+            <p class="fragment stat-label">Stop sitting in the loop pressing 'continue'</p>
+          </section>
+
+          <!-- PATTERN 4: CONTEXT HYGIENE -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 4</p>
+            <p class="big-idea">Context Hygiene</p>
+            <p class="fragment why-statement">Every irrelevant token degrades performance.</p>
+          </section>
+
+          <section>
+            <h3>The Silent Killer</h3>
+            <p style="font-size: 0.9em;">Thousands of tokens injected BEFORE your prompt:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.8em; margin-top: 1em;">
+              <p class="fragment">• CLAUDE.md bloat</p>
+              <p class="fragment">• Unruly MCP usage</p>
+              <p class="fragment">• Unused skills</p>
+              <p class="fragment">• Excessive repo reading</p>
+            </div>
+            <p class="fragment warning" style="margin-top: 1em;">50%+ performance degradation at 50k tokens!</p>
+          </section>
+
+          <section>
+            <h3>CLAUDE.md Discipline</h3>
+            <div style="font-size: 0.85em;">
+              <p class="fragment">✗ Content about multiple unrelated projects</p>
+              <p class="fragment">✗ Instructions you don't remember adding</p>
+              <p class="fragment">✗ Haven't reviewed in over a week</p>
+              <p class="fragment">✗ Longer than ~50 lines</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Every token must earn its place</p>
+          </section>
+
+          <section>
+            <h3>Compaction Strategy</h3>
+            <div style="font-size: 0.85em;">
+              <ol>
+                <li class="fragment">Disable autocompact</li>
+                <li class="fragment">Add status line: <code>[Opus 4.5] 55%</code></li>
+                <li class="fragment">Compaction when and how YOU choose</li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h3>Context Management Rapid Fire</h3>
+            <div style="font-size: 0.75em;">
+              <p class="fragment">• <code>/clear</code> + repo-specific CLAUDE.md for breakpoints</p>
+              <p class="fragment">• Use Opus subagents for isolated tasks</p>
+              <p class="fragment">• Sonnet [1m] as "break glass in emergency"</p>
+              <p class="fragment">• <code>/compact</code> manually at right times</p>
+              <p class="fragment">• <code>/handoff {NOTES}</code> for best handoffs</p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Double-Escape Time Travel</h3>
+            <p style="font-size: 0.9em; color: #ffd43b;">The most underutilized feature</p>
+            <div style="font-size: 0.8em; margin-top: 1em;">
+              <p class="fragment"><strong>Bug Fix Pattern:</strong></p>
+              <p class="fragment">1. Claude builds → bug appears → 5-10 turns debugging</p>
+              <p class="fragment">2. Bug fixed → Double-escape → restore ONLY conversation</p>
+              <p class="fragment">3. Keep working code, remove debugging context</p>
+            </div>
+            <p class="fragment tip" style="margin-top: 1em;">Stale context is harmful context</p>
+          </section>
+
+          <!-- PATTERN 5: SUBAGENTS -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 5</p>
+            <p class="big-idea">Subagent Control</p>
+          </section>
+
+          <section>
+            <h3>Hidden Truth</h3>
+            <p class="warning" style="font-size: 1.1em;">Claude Code spawns Sonnet and Haiku subagents<br/>even for knowledge tasks!</p>
+            <p class="fragment" style="margin-top: 1em; font-size: 0.9em;">Add to global CLAUDE.md:</p>
+            <pre class="fragment"><code>"Always launch opus subagents unless specified otherwise"</code></pre>
+          </section>
+
+          <section>
+            <h3>Subagent Philosophy</h3>
+            <div style="font-size: 0.85em;">
+              <p class="fragment punch-line">Keep subagents simple</p>
+              <p class="fragment" style="margin-left: 20px;">Specific patterns + skills, not abstract roles</p>
+              <p class="fragment punch-line" style="margin-top: 1em;">Parallelize aggressively</p>
+              <p class="fragment" style="margin-left: 20px;">Isolated context = parallel execution</p>
+              <p class="fragment punch-line" style="margin-top: 1em;">More subagents > more tasks per agent</p>
+              <p class="fragment warning" style="margin-top: 1em;">⚠️ One hallucination poisons the chain</p>
+            </div>
+          </section>
+
+          <!-- PATTERN 6: LEAN TOOL STACK -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 6</p>
+            <p class="big-idea">Lean Tool Stack</p>
+            <p class="fragment why-statement">Context is sacred.</p>
+          </section>
+
+          <section>
+            <h3>Essential MCPs Only</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div class="section-why" style="width: 45%;">
+                <p style="color: #ffd43b; font-size: 1.2em;">Context7 MCP</p>
+                <p style="font-size: 0.85em;">Up-to-date documentation<br/>for any framework</p>
+              </div>
+              <div class="section-why" style="width: 45%;">
+                <p style="color: #748ffc; font-size: 1.2em;">Dev Browser / Playwright</p>
+                <p style="font-size: 0.85em;">Browser control, screenshots,<br/>console errors</p>
+              </div>
+            </div>
+            <p class="fragment stat-label" style="margin-top: 1em;">Every MCP eats context. Choose wisely.</p>
+          </section>
+
+          <!-- PATTERN 7: REPROMPTER -->
+          <section>
+            <p style="font-size: 1.2em; color: #868e96;">Pattern 7</p>
+            <p class="big-idea">Prompt Engineering<br/>on Steroids</p>
+          </section>
+
+          <section>
+            <h3>The Bottleneck</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div>
+                <p class="single-stat" style="font-size: 2.5em;">1</p>
+                <p>Typing speed limits you</p>
+              </div>
+              <div>
+                <p class="single-stat" style="font-size: 2.5em;">2</p>
+                <p>Prompt patterns are automatable</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>The Reprompter System</h3>
+            <div style="font-size: 0.85em;">
+              <ol>
+                <li class="fragment">Press keybind</li>
+                <li class="fragment">Dictate what you want (voice)</li>
+                <li class="fragment">System asks clarifying questions</li>
+                <li class="fragment">Answer (still voice)</li>
+                <li class="fragment">Generates structured prompt with XML, role assignment</li>
+              </ol>
+            </div>
+            <p class="fragment tip" style="margin-top: 1em;">High quality + fast + no friction</p>
+          </section>
+
+          <section>
+            <p class="big-idea">At minimum:</p>
+            <p class="fragment why-statement">Have models interview you<br/>WAY more than you do now.</p>
+          </section>
+
+          <!-- QUICK REFERENCE -->
+          <section>
+            <h3>Quick Reference</h3>
+            <table style="font-size: 0.55em;">
+              <tr><th>Situation</th><th>Action</th></tr>
+              <tr><td>Something wrong</td><td><code>/log_error</code> → interview → capture → rewind</td></tr>
+              <tr><td>Need reliable workflow</td><td><code>/command</code> wrapping skill</td></tr>
+              <tr><td>Too many permissions</td><td>Hooks + dangerously-skip-permissions</td></tr>
+              <tr><td>Context filling up</td><td>Disable autocompact + status line</td></tr>
+              <tr><td>Bug fixed, context polluted</td><td>Double-escape → restore conversation only</td></tr>
+              <tr><td>Claude is looping</td><td>Double-escape → restore both</td></tr>
+              <tr><td>Subagents using wrong model</td><td>Add "Always opus subagents" to CLAUDE.md</td></tr>
+            </table>
+          </section>
+
+          <section>
+            <p class="big-idea">Master the harness.<br/>Not just the model.</p>
+          </section>
+
+          <!-- SOURCE -->
+          <section>
+            <h3>Source</h3>
+            <p style="font-size: 0.85em;"><a href="https://docs.google.com/document/d/1I9r21TyQuAO1y2ecztBU0PSCpjHSL_vZJiA5v276Wro">Advanced Claude Code Patterns That Move the Needle</a></p>
+            <p style="font-size: 0.75em; color: #868e96; margin-top: 0.5em;">By Romi J. • 2000+ hours building with LLMs</p>
+          </section>
+        </section>
+
+
+        <!-- ============================================ -->
+        <!-- PART 9: BMAD METHOD -->
+        <!-- ============================================ -->
+        <section data-background-gradient="linear-gradient(135deg, #495057 0%, #868e96 100%)">
+          <div class="part-header">
+            <h2>Part 9</h2>
+            <h1>BMAD Method</h1>
+            <p style="color: #adb5bd;">An open-source framework for structured AI development</p>
+          </div>
+        </section>
+
+        <!-- SECTION 51: BMAD METHOD -->
+        <section>
+          <section>
+            <h2>51. The BMAD Method</h2>
+            <p>Open-source agile framework for AI-assisted development</p>
+            <p style="font-size: 0.8em; color: #868e96; margin-top: 1em;">MIT License | Node.js ≥ 20.0.0 | Currently v6 alpha</p>
+          </section>
+
+          <!-- WHAT IT IS -->
+          <section>
+            <h3>What Is BMAD?</h3>
+            <div style="font-size: 0.85em; margin-top: 1em;">
+              <p>A set of prompt templates and workflow definitions that:</p>
+              <p class="fragment" style="margin-top: 0.5em;">• Structure AI conversations around development phases</p>
+              <p class="fragment">• Provide role-specific prompts (PM, Architect, Developer, etc.)</p>
+              <p class="fragment">• Reduce ad-hoc prompting with predefined workflows</p>
+            </div>
+          </section>
+
+          <!-- 4 PHASES -->
+          <section>
+            <h3>4-Phase Structure</h3>
+            <table style="font-size: 0.7em;">
+              <tr><th>Phase</th><th>Purpose</th><th>Outputs</th></tr>
+              <tr><td>1. Analysis</td><td>Brainstorming, research</td><td>Problem definition</td></tr>
+              <tr><td>2. Planning</td><td>Requirements definition</td><td>PRD, tech specs</td></tr>
+              <tr><td>3. Solutioning</td><td>Design decisions</td><td>Architecture, UX</td></tr>
+              <tr><td>4. Implementation</td><td>Coding & validation</td><td>Working code</td></tr>
+            </table>
+            <p class="fragment" style="font-size: 0.8em; color: #868e96; margin-top: 1em;">Not all phases required for every task</p>
+          </section>
+
+          <!-- 3 TRACKS -->
+          <section>
+            <h3>Three Complexity Tracks</h3>
+            <table style="font-size: 0.7em;">
+              <tr><th>Track</th><th>Use Case</th><th>Setup</th></tr>
+              <tr><td>Quick Flow</td><td>Bug fixes, small features</td><td>~5 min</td></tr>
+              <tr><td>BMad Method</td><td>Products, platforms</td><td>~15 min</td></tr>
+              <tr><td>Enterprise</td><td>Compliance-heavy projects</td><td>~30 min</td></tr>
+            </table>
+          </section>
+
+          <!-- AGENT ROLES -->
+          <section>
+            <h3>Predefined Agent Roles</h3>
+            <div style="font-size: 0.8em; margin-top: 1em;">
+              <p>12 role templates with system prompts:</p>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 0.5em;">
+                <p>• Developer</p>
+                <p>• Architect</p>
+                <p>• Product Manager</p>
+                <p>• UX Designer</p>
+                <p>• Test Architect</p>
+                <p>• Tech Writer</p>
+                <p>• Analyst</p>
+                <p>• Scrum Master</p>
+              </div>
+            </div>
+            <p class="fragment" style="font-size: 0.75em; color: #868e96; margin-top: 1em;">Customizable via configuration files</p>
+          </section>
+
+          <!-- TECHNICAL DETAILS -->
+          <section>
+            <h3>Technical Implementation</h3>
+            <div style="font-size: 0.8em;">
+              <p><strong>Document Sharding:</strong> Splits large specs into smaller chunks</p>
+              <p style="color: #868e96; font-size: 0.9em;">→ Reduces token usage by loading only relevant sections</p>
+              <p style="margin-top: 1em;"><strong>Update-Safe Configs:</strong> Custom settings in separate files</p>
+              <p style="color: #868e96; font-size: 0.9em;">→ Not overwritten when updating BMAD</p>
+            </div>
+          </section>
+
+          <!-- INSTALLATION -->
+          <section>
+            <h3>Installation</h3>
+            <pre><code class="language-bash"># Install via npm
+npx bmad-method@alpha install
+
+# Initialize in a project
+*workflow-init</code></pre>
+            <p style="font-size: 0.75em; color: #868e96; margin-top: 1em;">Compatible with: Claude Code, Cursor, VS Code, ChatGPT, Claude.ai</p>
+          </section>
+
+          <!-- TRADE-OFFS -->
+          <section>
+            <h3>Considerations</h3>
+            <div style="font-size: 0.85em;">
+              <p style="color: #51cf66;">✓ Structured approach reduces inconsistent outputs</p>
+              <p style="color: #51cf66;">✓ Reusable workflows across projects</p>
+              <p style="color: #51cf66;">✓ Clear phase gates for complex projects</p>
+              <p style="color: #ff6b6b; margin-top: 1em;">✗ Learning curve for the framework itself</p>
+              <p style="color: #ff6b6b;">✗ May be overkill for simple tasks</p>
+              <p style="color: #ff6b6b;">✗ Still in alpha (v6)</p>
+            </div>
+          </section>
+
+          <!-- WHEN TO USE -->
+          <section>
+            <h3>When to Consider BMAD</h3>
+            <div style="font-size: 0.85em;">
+              <p class="fragment">• Projects with multiple phases or stakeholders</p>
+              <p class="fragment">• Teams wanting consistent AI workflows</p>
+              <p class="fragment">• Complex features needing structured planning</p>
+              <p class="fragment" style="margin-top: 1em; color: #868e96;">Skip for: quick fixes, simple scripts, one-off tasks</p>
+            </div>
+          </section>
+
+          <!-- SOURCE -->
+          <section>
+            <h3>Source</h3>
+            <p style="font-size: 0.9em;"><a href="https://github.com/bmad-code-org/BMAD-METHOD">github.com/bmad-code-org/BMAD-METHOD</a></p>
+            <p style="font-size: 0.75em; color: #868e96; margin-top: 1em;">MIT License • Documentation: docs.bmad-method.org</p>
+          </section>
+        </section>
+
 
         <!-- ============================================ -->
         <!-- CONCLUSION -->
