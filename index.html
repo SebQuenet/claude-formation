@@ -169,7 +169,7 @@
             <h2>Part 1: The New Paradigm</h2>
             <div style="font-size: 0.7em;">
               <ol>
-                <li><strong>The Paradigm Shift</strong> - Why everything changed, vibe coding, TDD evolution</li>
+                <li><strong>The Paradigm Shift</strong> - Why everything changed, vibe coding, new developer role</li>
               </ol>
             </div>
           </section>
@@ -246,7 +246,7 @@
             <h2>Part 6: Quality & Operations</h2>
             <div style="font-size: 0.65em;">
               <ol start="32">
-                <li>Testing as Guardrails</li>
+                <li><strong>Testing as Guardrails</strong> - TDD evolution, verbosity, E2E vs unit</li>
                 <li>Build & Type Checks</li>
                 <li><strong>Cost Management</strong></li>
                 <li><strong>Debugging & Troubleshooting</strong></li>
@@ -420,226 +420,6 @@ deduction support"</code></pre>
               AI helps least when you could type it faster."
             </div>
             <p class="fragment quote-author">— METR Research, 2025</p>
-          </section>
-
-          <!-- VERBOSITY SECTION - THE BIG QUESTION -->
-          <section>
-            <p class="big-idea">More Code = Over-Engineering?</p>
-            <p class="fragment why-statement">Or is it just... better architecture?</p>
-          </section>
-
-          <section>
-            <h3>The Uncomfortable Question</h3>
-            <div style="margin-top: 1em;">
-              <p class="fragment" style="font-size: 1.2em; color: #868e96;">When Claude generates more code than you expected...</p>
-              <p class="fragment" style="font-size: 1.4em; margin-top: 0.5em;"><span class="contrast-old">Is it verbose?</span></p>
-              <p class="fragment" style="font-size: 1.4em;"><span class="contrast-new">Or properly structured?</span></p>
-            </div>
-          </section>
-
-          <section>
-            <h3>Signs of Good Architecture</h3>
-            <div style="font-size: 0.9em; margin-top: 1em;">
-              <p class="fragment">• Proper error handling at boundaries</p>
-              <p class="fragment">• Type annotations for public interfaces</p>
-              <p class="fragment">• Single Responsibility functions</p>
-              <p class="fragment">• Explicit over implicit patterns</p>
-              <p class="fragment">• Defensive validation at system edges</p>
-            </div>
-            <p class="fragment punch-line" style="margin-top: 1em;">What seems verbose often prevents future bugs.</p>
-          </section>
-
-          <section>
-            <h3>Signs of Real Over-Engineering</h3>
-            <div style="font-size: 0.9em; margin-top: 1em;">
-              <p class="fragment">• Comments explaining <code>i++</code></p>
-              <p class="fragment">• Abstractions used exactly once</p>
-              <p class="fragment">• Error handling for impossible states</p>
-              <p class="fragment">• Factory patterns for single implementations</p>
-              <p class="fragment">• "Flexibility" nobody asked for</p>
-            </div>
-          </section>
-
-          <section>
-            <div class="quote-block">
-              "LLMs gravitate toward generic, safe solutions<br/>
-              rather than elegant, optimized approaches."
-            </div>
-            <p class="fragment quote-author">— Research Study, 2025</p>
-          </section>
-
-          <section>
-            <h3>The Real Problem: Reviews</h3>
-            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
-              <div style="text-align: center;">
-                <p class="single-stat" style="font-size: 2.2em;">3x</p>
-                <p>Lines to review</p>
-              </div>
-              <div style="text-align: center;">
-                <p class="single-stat" style="font-size: 2.2em;">↑</p>
-                <p>Cognitive load</p>
-              </div>
-              <div style="text-align: center;">
-                <p class="single-stat" style="font-size: 2.2em;">↑</p>
-                <p>Context usage</p>
-              </div>
-            </div>
-            <p class="fragment" style="margin-top: 1em; color: #868e96;">Good or bad architecture — you still have to read it all.</p>
-          </section>
-
-          <section>
-            <h3>Context Window Impact</h3>
-            <div style="margin-top: 1em;">
-              <p class="fragment">Verbose code = faster context compaction</p>
-              <p class="fragment">More tokens = higher costs</p>
-              <p class="fragment">Larger diffs = harder integration</p>
-            </div>
-            <p class="fragment punch-line" style="margin-top: 1em;">Even "good" verbosity has real costs.</p>
-          </section>
-
-          <section>
-            <h3 style="color: #ffd43b;">Anthropic's Response</h3>
-            <p style="font-size: 1.3em; margin-top: 0.5em;">The <code>code-simplifier</code> plugin</p>
-            <div style="font-size: 0.85em; margin-top: 1em; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
-              <p class="fragment">• Official Anthropic plugin (January 2026)</p>
-              <p class="fragment">• Simplifies code while preserving functionality</p>
-              <p class="fragment">• Runs autonomously after code generation</p>
-              <p class="fragment">• Targets recently modified code</p>
-            </div>
-          </section>
-
-          <section>
-            <h3>code-simplifier Principles</h3>
-            <div style="font-size: 0.85em; margin-top: 1em;">
-              <p class="fragment"><strong>Preserve Functionality</strong> — Never change what code does</p>
-              <p class="fragment"><strong>Enhance Clarity</strong> — Reduce nesting and redundancy</p>
-              <p class="fragment"><strong>Maintain Balance</strong> — Don't over-simplify</p>
-              <p class="fragment"><strong>Explicit > Compact</strong> — Readable beats clever</p>
-            </div>
-            <p class="fragment punch-line" style="margin-top: 1em;">Install via: <code>/plugin</code> → Discover → code-simplifier</p>
-          </section>
-
-          <section>
-            <h3>Your Review Strategy</h3>
-            <div style="font-size: 0.85em; margin-top: 0.8em; line-height: 1.4;">
-              <p class="fragment" style="font-size: 1.1em;">1. Ask: "Is this structure or bloat?"</p>
-              <p class="fragment" style="font-size: 1.1em;">2. Use <code>code-simplifier</code> for automatic cleanup</p>
-              <p class="fragment" style="font-size: 1.1em;">3. Add to CLAUDE.md: "Minimal viable implementation"</p>
-              <p class="fragment" style="font-size: 1.1em;">4. Ask: "What can I delete?"</p>
-            </div>
-          </section>
-
-          <!-- TDD SECTION - Dramatic tension -->
-          <section>
-            <p class="big-idea">TDD is dead.</p>
-            <p class="fragment" style="font-size: 1.5em; margin-top: 0.5em;">...or is it?</p>
-          </section>
-
-          <!-- Classic TDD - Simple visual -->
-          <section>
-            <h3>Classic TDD Rhythm</h3>
-            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 1em;">
-              <div class="fragment" style="text-align: center;">
-                <p style="font-size: 2em; color: #ff6b6b;">RED</p>
-                <p>Write failing test</p>
-              </div>
-              <div class="fragment" style="text-align: center;">
-                <p style="font-size: 2em; color: #51cf66;">GREEN</p>
-                <p>Make it pass</p>
-              </div>
-              <div class="fragment" style="text-align: center;">
-                <p style="font-size: 2em; color: #748ffc;">REFACTOR</p>
-                <p>Clean up</p>
-              </div>
-            </div>
-            <p class="fragment" style="margin-top: 1em; color: #868e96;">Tiny increments. Tight feedback loops.</p>
-          </section>
-
-          <!-- What AI Does - Contrast -->
-          <section>
-            <h3>What AI Actually Does</h3>
-            <div style="margin-top: 1em;">
-              <p class="fragment" style="font-size: 1.3em;">1. Writes ALL tests at once</p>
-              <p class="fragment" style="font-size: 1.3em;">2. Writes FULL implementation in one pass</p>
-              <p class="fragment" style="font-size: 1.3em;">3. Maybe refactors if you ask nicely</p>
-            </div>
-            <p class="fragment punch-line" style="margin-top: 1em;">The iterative design benefit? Skipped entirely.</p>
-          </section>
-
-          <!-- PARADOX slide - One big idea -->
-          <section>
-            <p class="big-idea">TDD rhythm breaks.<br/><span class="fragment" style="color: #ffd43b;">But tests matter MORE.</span></p>
-          </section>
-
-          <!-- WHY tests matter - 4 cards -->
-          <section>
-            <h3>Tests Are Now...</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 1em; font-size: 0.9em;">
-              <div class="fragment section-why">
-                <p style="font-size: 1.3em; color: #ffd43b;">Context Anchors</p>
-                <p>Ground AI in reality</p>
-              </div>
-              <div class="fragment section-why">
-                <p style="font-size: 1.3em; color: #ffd43b;">Specifications</p>
-                <p>Unambiguous requirements</p>
-              </div>
-              <div class="fragment section-why">
-                <p style="font-size: 1.3em; color: #ffd43b;">Guardrails</p>
-                <p>Constrain the solution space</p>
-              </div>
-              <div class="fragment section-why">
-                <p style="font-size: 1.3em; color: #ffd43b;">Verification</p>
-                <p>100 tests > 1000 lines of review</p>
-              </div>
-            </div>
-          </section>
-
-          <!-- NEW TDD - Simple contrast -->
-          <section>
-            <div style="display: flex; justify-content: space-around; align-items: center;">
-              <div>
-                <p class="contrast-old" style="font-size: 1.3em;">Old TDD</p>
-                <p>Tests drive <strong>design</strong></p>
-              </div>
-              <p style="font-size: 2em;">→</p>
-              <div>
-                <p class="contrast-new" style="font-size: 1.3em;">New TDD</p>
-                <p>Tests drive <strong>AI behavior</strong></p>
-              </div>
-            </div>
-          </section>
-
-          <!-- Tests as specs - Code example -->
-          <section>
-            <h3>Tests as Specifications</h3>
-            <pre><code class="language-javascript">describe('Payment Processing', () => {
-  it('charges card and creates order')
-  it('handles declined cards gracefully')
-  it('sends confirmation email')
-  it('is idempotent for retries')
-})</code></pre>
-            <p class="fragment punch-line" style="margin-top: 1em;">"Implement code that makes these tests pass."</p>
-            <p class="fragment" style="color: #868e96;">Human reviews BEHAVIOR, not every line.</p>
-          </section>
-
-          <!-- E2E vs Unit - Dramatic reveal -->
-          <section>
-            <p class="big-idea">E2E tests beat unit tests.</p>
-            <p class="fragment why-statement">For AI-generated code.</p>
-          </section>
-
-          <section>
-            <h3>Why E2E Wins</h3>
-            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
-              <div style="text-align: center;">
-                <p class="contrast-old" style="font-size: 1.2em;">Unit Tests</p>
-                <p style="font-size: 0.9em;">AI tests its own code<br/>Becomes tautological</p>
-              </div>
-              <div style="text-align: center;">
-                <p class="contrast-new" style="font-size: 1.2em;">E2E Tests</p>
-                <p style="font-size: 0.9em;">Test real user flows<br/>AI can't game them</p>
-              </div>
-            </div>
           </section>
 
           <!-- ROLE CHANGE - Big idea -->
@@ -6615,17 +6395,28 @@ Follow our existing patterns in /src/api/ for consistency.</code></pre>
               <li>Install globally or per-project</li>
               <li>Combine multiple plugins for powerful workflows</li>
             </ul>
-            <pre><code class="language-bash"># Install a plugin
-claude plugins add @anthropic/claude-code-plugin-git
+            <pre><code class="language-bash"># Discover and install plugins via slash command
+/plugin
+# → Select "Discover" to browse available plugins
+# → Select a plugin to install
 
-# List installed plugins
-claude plugins list
+# Plugins are stored in ~/.claude/plugins/
+# Or per-project in .claude/plugins/</code></pre>
+          </section>
 
-# Remove a plugin
-claude plugins remove @anthropic/claude-code-plugin-git
-
-# Update all plugins
-claude plugins update</code></pre>
+          <section>
+            <h3 style="color: #ffd43b;">Official: code-simplifier</h3>
+            <p style="font-size: 0.9em; margin-top: 0.5em;">Anthropic's plugin for reducing verbosity (January 2026)</p>
+            <div style="font-size: 0.85em; margin-top: 1em; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+              <p class="fragment">• Simplifies code while preserving functionality</p>
+              <p class="fragment">• Runs autonomously after code generation</p>
+              <p class="fragment">• Targets recently modified code</p>
+            </div>
+            <div class="fragment" style="margin-top: 1em;">
+              <p><strong>Principles:</strong></p>
+              <p style="font-size: 0.8em;">Preserve Functionality • Enhance Clarity • Maintain Balance • Explicit > Compact</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Install via: <code>/plugin</code> → Discover → code-simplifier</p>
           </section>
 
           <section>
@@ -7292,6 +7083,199 @@ git push -u origin main
             <p class="fragment why-statement">Write the spec. Claude writes the code.</p>
           </section>
 
+          <!-- TDD EVOLUTION - Moved from Part 1 -->
+          <section>
+            <p class="big-idea">TDD is dead.</p>
+            <p class="fragment" style="font-size: 1.5em; margin-top: 0.5em;">...or is it?</p>
+          </section>
+
+          <section>
+            <h3>Classic TDD Rhythm</h3>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 1em;">
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #ff6b6b;">RED</p>
+                <p>Write failing test</p>
+              </div>
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #51cf66;">GREEN</p>
+                <p>Make it pass</p>
+              </div>
+              <div class="fragment" style="text-align: center;">
+                <p style="font-size: 2em; color: #748ffc;">REFACTOR</p>
+                <p>Clean up</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Tiny increments. Tight feedback loops.</p>
+          </section>
+
+          <section>
+            <h3>What AI Actually Does</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment" style="font-size: 1.3em;">1. Writes ALL tests at once</p>
+              <p class="fragment" style="font-size: 1.3em;">2. Writes FULL implementation in one pass</p>
+              <p class="fragment" style="font-size: 1.3em;">3. Maybe refactors if you ask nicely</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">The iterative design benefit? Skipped entirely.</p>
+          </section>
+
+          <section>
+            <p class="big-idea">TDD rhythm breaks.<br/><span class="fragment" style="color: #ffd43b;">But tests matter MORE.</span></p>
+          </section>
+
+          <section>
+            <h3>Tests Are Now...</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 1em; font-size: 0.9em;">
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Context Anchors</p>
+                <p>Ground AI in reality</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Specifications</p>
+                <p>Unambiguous requirements</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Guardrails</p>
+                <p>Constrain the solution space</p>
+              </div>
+              <div class="fragment section-why">
+                <p style="font-size: 1.3em; color: #ffd43b;">Verification</p>
+                <p>100 tests > 1000 lines of review</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+              <div>
+                <p class="contrast-old" style="font-size: 1.3em;">Old TDD</p>
+                <p>Tests drive <strong>design</strong></p>
+              </div>
+              <p style="font-size: 2em;">→</p>
+              <div>
+                <p class="contrast-new" style="font-size: 1.3em;">New TDD</p>
+                <p>Tests drive <strong>AI behavior</strong></p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Tests as Specifications</h3>
+            <pre><code class="language-javascript">describe('Payment Processing', () => {
+  it('charges card and creates order')
+  it('handles declined cards gracefully')
+  it('sends confirmation email')
+  it('is idempotent for retries')
+})</code></pre>
+            <p class="fragment punch-line" style="margin-top: 1em;">"Implement code that makes these tests pass."</p>
+            <p class="fragment" style="color: #868e96;">Human reviews BEHAVIOR, not every line.</p>
+          </section>
+
+          <section>
+            <p class="big-idea">E2E tests beat unit tests.</p>
+            <p class="fragment why-statement">For AI-generated code.</p>
+          </section>
+
+          <section>
+            <h3>Why E2E Wins</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div style="text-align: center;">
+                <p class="contrast-old" style="font-size: 1.2em;">Unit Tests</p>
+                <p style="font-size: 0.9em;">AI tests its own code<br/>Becomes tautological</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="contrast-new" style="font-size: 1.2em;">E2E Tests</p>
+                <p style="font-size: 0.9em;">Test real user flows<br/>AI can't game them</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- VERBOSITY & CODE QUALITY - Moved from Part 1 -->
+          <section>
+            <p class="big-idea">More Code = Over-Engineering?</p>
+            <p class="fragment why-statement">Or is it just... better architecture?</p>
+          </section>
+
+          <section>
+            <h3>The Uncomfortable Question</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment" style="font-size: 1.2em; color: #868e96;">When Claude generates more code than you expected...</p>
+              <p class="fragment" style="font-size: 1.4em; margin-top: 0.5em;"><span class="contrast-old">Is it verbose?</span></p>
+              <p class="fragment" style="font-size: 1.4em;"><span class="contrast-new">Or properly structured?</span></p>
+            </div>
+          </section>
+
+          <section>
+            <h3>Signs of Good Architecture</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment">• Proper error handling at boundaries</p>
+              <p class="fragment">• Type annotations for public interfaces</p>
+              <p class="fragment">• Single Responsibility functions</p>
+              <p class="fragment">• Explicit over implicit patterns</p>
+              <p class="fragment">• Defensive validation at system edges</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">What seems verbose often prevents future bugs.</p>
+          </section>
+
+          <section>
+            <h3>Signs of Real Over-Engineering</h3>
+            <div style="font-size: 0.9em; margin-top: 1em;">
+              <p class="fragment">• Comments explaining <code>i++</code></p>
+              <p class="fragment">• Abstractions used exactly once</p>
+              <p class="fragment">• Error handling for impossible states</p>
+              <p class="fragment">• Factory patterns for single implementations</p>
+              <p class="fragment">• "Flexibility" nobody asked for</p>
+            </div>
+          </section>
+
+          <section>
+            <div class="quote-block">
+              "LLMs gravitate toward generic, safe solutions<br/>
+              rather than elegant, optimized approaches."
+            </div>
+            <p class="fragment quote-author">— Research Study, 2025</p>
+          </section>
+
+          <section>
+            <h3>The Real Problem: Reviews</h3>
+            <div style="display: flex; justify-content: space-around; margin-top: 1em;">
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">3x</p>
+                <p>Lines to review</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">↑</p>
+                <p>Cognitive load</p>
+              </div>
+              <div style="text-align: center;">
+                <p class="single-stat" style="font-size: 2.2em;">↑</p>
+                <p>Context usage</p>
+              </div>
+            </div>
+            <p class="fragment" style="margin-top: 1em; color: #868e96;">Good or bad architecture — you still have to read it all.</p>
+          </section>
+
+          <section>
+            <h3>Context Window Impact</h3>
+            <div style="margin-top: 1em;">
+              <p class="fragment">Verbose code = faster context compaction</p>
+              <p class="fragment">More tokens = higher costs</p>
+              <p class="fragment">Larger diffs = harder integration</p>
+            </div>
+            <p class="fragment punch-line" style="margin-top: 1em;">Even "good" verbosity has real costs.</p>
+          </section>
+
+          <section>
+            <h3>Your Review Strategy</h3>
+            <div style="font-size: 0.85em; margin-top: 0.8em; line-height: 1.4;">
+              <p class="fragment" style="font-size: 1.1em;">1. Ask: "Is this structure or bloat?"</p>
+              <p class="fragment" style="font-size: 1.1em;">2. Use <code>code-simplifier</code> for automatic cleanup</p>
+              <p class="fragment" style="font-size: 1.1em;">3. Add to CLAUDE.md: "Minimal viable implementation"</p>
+              <p class="fragment" style="font-size: 1.1em;">4. Ask: "What can I delete?"</p>
+            </div>
+            <p class="fragment tip" style="margin-top: 0.5em;">See Section 31 for the code-simplifier plugin.</p>
+          </section>
+
+          <!-- PRACTICAL TDD WORKFLOWS -->
           <section>
             <h3>TDD with Claude</h3>
             <pre><code class="language-bash"># Test-Driven Development workflow
