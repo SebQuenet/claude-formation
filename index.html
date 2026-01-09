@@ -918,6 +918,21 @@ if "VALID" in validation.content[0].text:
     # Generate implementation
     implementation = await claude.messages.create(...)</code></pre>
           </section>
+
+          <section>
+            <h3>Meta-Prompting</h3>
+            <p>When you don't know how to ask, ask Claude to help you ask</p>
+            <pre><code class="language-text">"I want to refactor this code but I'm not sure what
+approach would be best. Help me create a prompt that
+will get Claude to analyze the code and suggest the
+most appropriate refactoring strategy."</code></pre>
+            <div class="fragment" style="margin-top: 1em;">
+              <pre><code class="language-text">"I need to [vague goal] but I don't know how to phrase it.
+Help me formulate a clear, specific prompt that will
+achieve [intended outcome]."</code></pre>
+            </div>
+            <p class="fragment tip">Claude excels at clarifying ambiguous requests — use it to sharpen your own prompts.</p>
+          </section>
         </section>
 
         <!-- ============================================ -->
