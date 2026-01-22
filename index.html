@@ -1056,17 +1056,15 @@ claude --resume &lt;session-id&gt;</code></pre>
 
           <section>
             <h3>Resume Patterns</h3>
-            <pre><code class="language-bash"># Pattern 1: Resume yesterday's work
-claude --resume
-"Where did we leave off with the auth refactor?"
+            <pre><code class="language-bash"># Pattern 1: Continue in current project
+claude --continue  # Resumes last session in this directory
 
-# Pattern 2: Named sessions (via alias)
-alias auth-work="claude --session auth-2025-01"
-auth-work
+# Pattern 2: Interactive picker
+claude --resume  # Shows recent sessions to choose from
 
 # Pattern 3: Project-specific sessions
 cd ~/projects/webapp
-claude  # Auto-scopes to this project</code></pre>
+claude -c  # Each project has its own session history</code></pre>
           </section>
 
           <!-- SINGLE STAT (Godin) -->
