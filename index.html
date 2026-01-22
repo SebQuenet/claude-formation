@@ -5683,42 +5683,89 @@ claude --bug-report
           </section>
 
           <section>
-            <h3>Complete Architecture Example</h3>
-            <pre><code class="language-text">┌─────────────────────────────────────────────────────────────┐
-│                     Your Application                        │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Smart Router                             │
-│  • Classifies request complexity                            │
-│  • Routes to appropriate model                              │
-│  • Manages rate limits                                      │
-└────────────────────────────┬────────────────────────────────┘
-                             │
-         ┌───────────────────┼───────────────────┐
-         ▼                   ▼                   ▼
-    ┌─────────┐        ┌─────────┐        ┌─────────┐
-    │  Haiku  │        │ Sonnet  │        │  Opus   │
-    │  Fast   │        │ Balanced│        │ Complex │
-    └─────────┘        └─────────┘        └─────────┘
-         │                   │                   │
-         └───────────────────┼───────────────────┘
-                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Tool Executor                            │
-│  • Parallel tool execution                                  │
-│  • Error handling & retries                                 │
-│  • Result validation                                        │
-└─────────────────────────────────────────────────────────────┘
-                             │
-                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Response Handler                         │
-│  • Streaming support                                        │
-│  • Output validation                                        │
-│  • Cost tracking                                            │
-└─────────────────────────────────────────────────────────────┘</code></pre>
+            <h3>Complete Architecture Overview</h3>
+            <div style="font-size: 0.9em;">
+              <p style="margin-bottom: 0.8em;">4 layers for production-grade Claude integration:</p>
+              <div style="display: flex; flex-direction: column; gap: 0.4em; align-items: center;">
+                <div style="background: #495057; padding: 0.4em 2em; border-radius: 5px;">📱 Your Application</div>
+                <div style="color: #868e96;">▼</div>
+                <div style="background: #364fc7; padding: 0.4em 2em; border-radius: 5px;">🧭 Smart Router</div>
+                <div style="color: #868e96;">▼</div>
+                <div style="display: flex; gap: 1em;">
+                  <div style="background: #2f9e44; padding: 0.3em 0.8em; border-radius: 5px; font-size: 0.85em;">Haiku</div>
+                  <div style="background: #f59f00; padding: 0.3em 0.8em; border-radius: 5px; font-size: 0.85em;">Sonnet</div>
+                  <div style="background: #e03131; padding: 0.3em 0.8em; border-radius: 5px; font-size: 0.85em;">Opus</div>
+                </div>
+                <div style="color: #868e96;">▼</div>
+                <div style="background: #5f3dc4; padding: 0.4em 2em; border-radius: 5px;">⚙️ Tool Executor</div>
+                <div style="color: #868e96;">▼</div>
+                <div style="background: #0c8599; padding: 0.4em 2em; border-radius: 5px;">📤 Response Handler</div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Layer 1: Smart Router</h3>
+            <p class="why-statement">Route requests to the right model</p>
+            <ul style="font-size: 0.85em;">
+              <li><strong>Classify complexity</strong>: Simple → Haiku, Medium → Sonnet, Complex → Opus</li>
+              <li><strong>Manage rate limits</strong>: Queue requests, respect API limits</li>
+              <li><strong>Cost optimization</strong>: Use cheapest model that can handle the task</li>
+            </ul>
+            <pre><code class="language-typescript" style="font-size: 0.7em;">const route = (task: Task) => {
+  if (task.complexity < 3) return 'haiku';
+  if (task.complexity < 7) return 'sonnet';
+  return 'opus';
+};</code></pre>
+          </section>
+
+          <section>
+            <h3>Layer 2: Model Selection</h3>
+            <table style="font-size: 0.75em;">
+              <tr>
+                <th>Model</th>
+                <th>Best For</th>
+                <th>Cost</th>
+              </tr>
+              <tr>
+                <td style="color: #2f9e44;"><strong>Haiku</strong></td>
+                <td>Classification, extraction, simple Q&A</td>
+                <td>$</td>
+              </tr>
+              <tr>
+                <td style="color: #f59f00;"><strong>Sonnet</strong></td>
+                <td>Code generation, analysis, most tasks</td>
+                <td>$$</td>
+              </tr>
+              <tr>
+                <td style="color: #e03131;"><strong>Opus</strong></td>
+                <td>Complex reasoning, architecture, research</td>
+                <td>$$$</td>
+              </tr>
+            </table>
+            <p class="fragment tip" style="margin-top: 1em;">Rule of thumb: Start with Sonnet, optimize later</p>
+          </section>
+
+          <section>
+            <h3>Layer 3: Tool Executor</h3>
+            <p class="why-statement">Execute tools reliably at scale</p>
+            <ul style="font-size: 0.85em;">
+              <li><strong>Parallel execution</strong>: Run independent tools concurrently</li>
+              <li><strong>Error handling</strong>: Retry with exponential backoff</li>
+              <li><strong>Validation</strong>: Verify tool outputs match expected schema</li>
+              <li><strong>Timeouts</strong>: Kill long-running tools, return partial results</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Layer 4: Response Handler</h3>
+            <p class="why-statement">Deliver results to your application</p>
+            <ul style="font-size: 0.85em;">
+              <li><strong>Streaming</strong>: Show results as they arrive</li>
+              <li><strong>Output validation</strong>: Ensure response matches expected format</li>
+              <li><strong>Cost tracking</strong>: Log tokens used, estimate costs</li>
+              <li><strong>Caching</strong>: Store responses for identical requests</li>
+            </ul>
           </section>
         </section>
 
