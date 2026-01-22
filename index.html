@@ -920,7 +920,7 @@ EOF</code></pre>
             <h3>Tab Completion</h3>
             <pre><code class="language-bash"># Commands
 /com[TAB] → /commit
-/rev[TAB] → /review
+/cla[TAB] → /claude-review
 
 # File paths
 @src/comp[TAB] → @src/components/
@@ -1908,7 +1908,7 @@ Never store passwords in plain text.</code></pre>
 /model             # Switch between Claude models
 
 # Review
-/review            # Review a PR (can pass PR number)</code></pre>
+/claude-review     # Review a PR (can pass PR number)</code></pre>
           </section>
 
           <section>
@@ -2933,12 +2933,12 @@ Closes #142
           </section>
 
           <section>
-            <h3>PR Review with /review</h3>
+            <h3>PR Review with /claude-review</h3>
             <pre><code class="language-bash"># Review current branch against main
-/review
+/claude-review
 
 # Review specific PR by number
-/review 123
+/claude-review 123
 
 # Review with focus
 "Review PR #123 focusing on security implications"
