@@ -1002,14 +1002,14 @@ Ctrl+R  # Reverse search
             <pre><code class="language-bash"># Clear current session (fresh start)
 /clear
 
-# Resume last session
+# Resume last session in current directory
+claude --continue
+
+# Resume with interactive picker
 claude --resume
 
-# Continue specific session
-claude --session &lt;session-id&gt;
-
-# List recent sessions
-claude --list-sessions</code></pre>
+# Resume specific session by ID
+claude --resume &lt;session-id&gt;</code></pre>
           </section>
 
           <section>
