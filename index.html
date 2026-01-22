@@ -919,7 +919,7 @@ EOF</code></pre>
           <section>
             <h3>Tab Completion</h3>
             <pre><code class="language-bash"># Commands
-/com[TAB] → /commit
+/com[TAB] → /compact
 /cla[TAB] → /claude-review
 
 # File paths
@@ -2881,9 +2881,9 @@ Generate release report with go/no-go recommendation."</code></pre>
           </section>
 
           <section>
-            <h3>The /commit Command</h3>
-            <pre><code class="language-bash"># Basic commit
-/commit
+            <h3>Committing with Claude</h3>
+            <pre><code class="language-bash"># Simple request
+"commit my changes"
 
 # Claude will:
 # 1. Run git status to see changes
@@ -2892,10 +2892,10 @@ Generate release report with go/no-go recommendation."</code></pre>
 # 4. Ask for confirmation
 # 5. Execute git commit
 
-# With message hint
-/commit "fix auth bug"
+# With context hint
+"commit this, it fixes the auth bug"
 
-# Claude refines your hint into proper message</code></pre>
+# Claude crafts a proper conventional commit message</code></pre>
           </section>
 
           <section>
@@ -4165,40 +4165,34 @@ Follow our existing patterns in /src/api/ for consistency.</code></pre>
 
           <section>
             <h3 style="color: #ffd43b;">Official: code-simplifier</h3>
-            <p style="font-size: 0.9em; margin-top: 0.5em;">Anthropic's plugin for reducing verbosity (January 2026)</p>
-            <div style="font-size: 0.85em; margin-top: 1em; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
-              <p class="fragment">• Simplifies code while preserving functionality</p>
-              <p class="fragment">• Runs autonomously after code generation</p>
-              <p class="fragment">• Targets recently modified code</p>
-            </div>
-            <div class="fragment" style="margin-top: 1em;">
-              <p><strong>Principles:</strong></p>
-              <p style="font-size: 0.8em;">Preserve Functionality • Enhance Clarity • Maintain Balance • Explicit > Compact</p>
-            </div>
-            <p class="fragment punch-line" style="margin-top: 1em;">Install via: <code>/plugin</code> → Discover → code-simplifier</p>
+            <p style="font-size: 0.85em;">Anthropic's plugin for reducing verbosity</p>
+            <ul style="font-size: 0.8em; margin-top: 0.5em;">
+              <li>Simplifies code while preserving functionality</li>
+              <li>Runs autonomously after code generation</li>
+              <li>Targets recently modified code</li>
+            </ul>
+            <p class="fragment punch-line" style="margin-top: 0.8em;">Install: <code>/plugin</code> → Discover → code-simplifier</p>
           </section>
 
           <section>
-            <h3>Essential: Git Plugin</h3>
-            <pre><code class="language-bash"># @anthropic/claude-code-plugin-git
+            <h3>Git Workflow (Conversational)</h3>
+            <pre><code class="language-bash"># Smart commit messages based on diff
+"commit my changes"
 
-# Smart commit messages based on diff
-/commit
+# Interactive rebase
+"rebase this branch on main"
 
-# Interactive rebase helper
-/rebase main
+# Branch management
+"create a branch for user-auth feature"
 
-# Branch management with context
-/branch feature/user-auth
-
-# Conflict resolution assistant
-/resolve
+# Conflict resolution
+"help me resolve merge conflicts"
 
 # PR creation with auto-generated description
-/pr create
+"create a PR for this branch"
 
 # Git history analysis
-"What changed in the auth module last week?"</code></pre>
+"what changed in the auth module last week?"</code></pre>
           </section>
 
           <section>
