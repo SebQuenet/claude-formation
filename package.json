@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx serve .",
+    "cherry-pick": "xdg-open http://localhost:3000/index-cherry-pick.html & npx serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
