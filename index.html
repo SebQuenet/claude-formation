@@ -5949,30 +5949,91 @@ type DeepPartial&lt;T&gt; = T extends Branded&lt;infer U, infer B&gt;
 
           <section>
             <h3>The Iterative Scraping Pattern</h3>
-            <pre><code class="language-text">┌─────────────────────────────────────────────────────────────┐
-│  1. Define Schema                                           │
-│     └─► TypeScript interface + Zod validator                │
-└──────────────────────────┬──────────────────────────────────┘
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│  2. Scrape Raw Data                                         │
-│     └─► Playwright MCP / fetch / puppeteer                  │
-└──────────────────────────┬──────────────────────────────────┘
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│  3. Claude Extracts & Structures                            │
-│     └─► Raw HTML → Structured JSON                          │
-└──────────────────────────┬──────────────────────────────────┘
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│  4. Validate with Zod                                       │
-│     └─► Pass → Save │ Fail → Claude fixes or flags          │
-└──────────────────────────┬──────────────────────────────────┘
-                           ▼
-┌─────────────────────────────────────────────────────────────┐
-│  5. Review Failures, Evolve Schema                          │
-│     └─► New edge cases → Update schema → Re-run             │
-└─────────────────────────────────────────────────────────────┘</code></pre>
+            <div style="display: flex; flex-direction: column; gap: 0.3em; align-items: center; font-size: 0.85em;">
+              <div style="background: #364fc7; padding: 0.4em 1.5em; border-radius: 5px; text-align: center;">
+                <strong>1. Define Schema</strong><br/>
+                <span style="font-size: 0.85em;">TypeScript + Zod validator</span>
+              </div>
+              <div style="color: #868e96;">▼</div>
+              <div style="background: #2f9e44; padding: 0.4em 1.5em; border-radius: 5px; text-align: center;">
+                <strong>2. Scrape Raw Data</strong><br/>
+                <span style="font-size: 0.85em;">Playwright MCP / fetch</span>
+              </div>
+              <div style="color: #868e96;">▼</div>
+              <div style="background: #f59f00; padding: 0.4em 1.5em; border-radius: 5px; text-align: center;">
+                <strong>3. Claude Extracts</strong><br/>
+                <span style="font-size: 0.85em;">Raw HTML → Structured JSON</span>
+              </div>
+              <div style="color: #868e96;">▼</div>
+              <div style="background: #e03131; padding: 0.4em 1.5em; border-radius: 5px; text-align: center;">
+                <strong>4. Validate with Zod</strong><br/>
+                <span style="font-size: 0.85em;">Pass → Save | Fail → Fix</span>
+              </div>
+              <div style="color: #868e96;">▼</div>
+              <div style="background: #5f3dc4; padding: 0.4em 1.5em; border-radius: 5px; text-align: center;">
+                <strong>5. Evolve Schema</strong><br/>
+                <span style="font-size: 0.85em;">New edge cases → Update → Re-run</span>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Step 1-2: Define & Scrape</h3>
+            <div style="display: flex; gap: 1em; font-size: 0.8em;">
+              <div style="flex: 1; background: #364fc7; padding: 0.8em; border-radius: 5px;">
+                <strong>1. Define Schema</strong>
+                <ul style="margin-top: 0.5em; font-size: 0.9em;">
+                  <li>TypeScript interface for type safety</li>
+                  <li>Zod schema for runtime validation</li>
+                  <li>Include confidence score field</li>
+                </ul>
+              </div>
+              <div style="flex: 1; background: #2f9e44; padding: 0.8em; border-radius: 5px;">
+                <strong>2. Scrape Raw Data</strong>
+                <ul style="margin-top: 0.5em; font-size: 0.9em;">
+                  <li>Playwright MCP for dynamic sites</li>
+                  <li>Simple fetch for static pages</li>
+                  <li>Handle pagination & rate limits</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Step 3-4: Extract & Validate</h3>
+            <div style="display: flex; gap: 1em; font-size: 0.8em;">
+              <div style="flex: 1; background: #f59f00; padding: 0.8em; border-radius: 5px;">
+                <strong>3. Claude Extracts</strong>
+                <ul style="margin-top: 0.5em; font-size: 0.9em;">
+                  <li>Raw HTML → Structured JSON</li>
+                  <li>Handles messy, inconsistent markup</li>
+                  <li>Self-rates extraction confidence</li>
+                </ul>
+              </div>
+              <div style="flex: 1; background: #e03131; padding: 0.8em; border-radius: 5px;">
+                <strong>4. Validate with Zod</strong>
+                <ul style="margin-top: 0.5em; font-size: 0.9em;">
+                  <li>Pass → Save to database</li>
+                  <li>Fail → Claude fixes or flags</li>
+                  <li>Log validation errors for review</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Step 5: Evolve Schema</h3>
+            <div style="background: #5f3dc4; padding: 1em; border-radius: 5px; font-size: 0.85em;">
+              <p style="margin-bottom: 0.5em;"><strong>The iteration loop:</strong></p>
+              <ul>
+                <li>Review validation failures as a batch</li>
+                <li>Identify new edge cases and patterns</li>
+                <li>Update schema to handle new cases</li>
+                <li>Re-run extraction on failed items</li>
+                <li>Repeat until quality threshold met</li>
+              </ul>
+            </div>
+            <p class="fragment tip" style="margin-top: 0.8em;">Aim for 95%+ validation pass rate before production</p>
           </section>
 
           <section>
