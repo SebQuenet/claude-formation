@@ -1788,6 +1788,89 @@ the CLAUDE.md files from the current directory."
 # Force read a specific file:
 "Read and apply rules from .claude/special-rules.md"</code></pre>
           </section>
+
+          <section>
+            <h3>CLAUDE.md Limitations</h3>
+            <p class="why-statement">Not everything is followed literally</p>
+            <ul>
+              <li><strong>Soft guidelines</strong>: Claude interprets, not executes blindly</li>
+              <li><strong>Context overload</strong>: Long files = some rules get "forgotten"</li>
+              <li><strong>Ambiguity</strong>: Vague rules lead to inconsistent behavior</li>
+              <li><strong>Competing priorities</strong>: Claude may override rules for safety/quality</li>
+              <li><strong>No enforcement</strong>: Rules are suggestions, not hard constraints</li>
+            </ul>
+            <pre><code class="language-markdown"># ❌ Weak: Often ignored
+Use 2 spaces for indentation
+
+# ⚠️ Better: More likely followed
+Always use 2 spaces for indentation, never tabs
+
+# ✅ Strong: Almost always followed
+CRITICAL: Use exactly 2 spaces for indentation. Never use tabs.</code></pre>
+          </section>
+
+          <section>
+            <h3>Reinforcing Critical Directives</h3>
+            <p class="why-statement">Use strong language for rules that must never be broken</p>
+            <pre><code class="language-markdown"># Power words that increase compliance:
+
+## 🔴 GOLDEN RULE
+Never commit directly to main branch.
+
+## ⚠️ SACRED - NEVER VIOLATE THIS RULE
+All database changes must go through migrations.
+Never use raw SQL in application code.
+
+## 🚨 CRITICAL - NON-NEGOTIABLE
+Authentication tokens must never be logged.
+PII must never appear in error messages.
+
+## ⛔ ABSOLUTE REQUIREMENT
+All API endpoints must have rate limiting.
+This is not optional under any circumstances.
+
+## 💀 FORBIDDEN - ZERO TOLERANCE
+Never use `eval()` or `exec()` on user input.
+Never disable SSL verification.
+Never store passwords in plain text.</code></pre>
+          </section>
+
+          <section>
+            <h3>Directive Strength Hierarchy</h3>
+            <table style="font-size: 0.7em;">
+              <tr>
+                <th>Strength</th>
+                <th>Keywords</th>
+                <th>Compliance</th>
+              </tr>
+              <tr>
+                <td style="color: #ff6b6b;">Maximum</td>
+                <td><code>FORBIDDEN</code>, <code>NEVER</code>, <code>SACRED</code></td>
+                <td>~95%</td>
+              </tr>
+              <tr>
+                <td style="color: #ffa94d;">High</td>
+                <td><code>CRITICAL</code>, <code>GOLDEN RULE</code>, <code>MUST</code></td>
+                <td>~85%</td>
+              </tr>
+              <tr>
+                <td style="color: #ffd43b;">Medium</td>
+                <td><code>Always</code>, <code>Required</code>, <code>Important</code></td>
+                <td>~70%</td>
+              </tr>
+              <tr>
+                <td style="color: #69db7c;">Low</td>
+                <td><code>Should</code>, <code>Prefer</code>, <code>Recommended</code></td>
+                <td>~50%</td>
+              </tr>
+              <tr>
+                <td style="color: #868e96;">Minimal</td>
+                <td><code>Consider</code>, <code>Try to</code>, plain statements</td>
+                <td>~30%</td>
+              </tr>
+            </table>
+            <p class="fragment tip">Pro tip: Reserve strong language for truly critical rules</p>
+          </section>
         </section>
 
         <!-- ============================================ -->
